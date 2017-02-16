@@ -14,23 +14,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 [AutoFinal]
-class ExternalBlock extends Node implements ScopeDeclaration {
-    public String[] targets
-    
-    public var String contents
-    
-    /// Create a new ExternalBlock node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the ExternalBlock node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID, public String[] targets) {
-        super(parent, location)
-        
-        scope = new Scope(this, location)
-    }
-    
+class ExternalBlockWriter extends NodeWriter implements ScopeDeclarationWriter {
     public writeTargets() =>
         targets.count > 0 ?
             targets.map({ " #_" }).join(",") :

@@ -4,31 +4,6 @@ import "novex/astro/Astro"
 import "novex/astro/tree/SyntaxTree"
 import "novex/astro/SyntaxMessage"
 
-class Program extends NodeList<NovaFile> {
-    visible Program program => this
-    
-    visible NovaFile[] files => (NovaFile[])children
-    
-    public SyntaxTree tree
-    
-    visible Astro astro => tree.astro
-    
-    public construct(SyntaxTree tree = null) {
-        super()
-        
-        this.tree = tree
-    }
-    
-    public addChild(Node child) {
-        if (!child.class.isOfType(NovaFile)) {
-            SyntaxMessage.error("Invalid child '#child'", child)
-        } else {
-            super.addChild(child)
-        }
-    }
-    
-    public getClassDeclaration(String location) =>
-        files.firstWhere(f => { f.classDeclaration && f.classDeclaration.location.equals(location) })?.classDeclaration
-    
+class ProgramWriter extends NodeListWriter<NovaFile> {
     public toString() => "Program"
 }

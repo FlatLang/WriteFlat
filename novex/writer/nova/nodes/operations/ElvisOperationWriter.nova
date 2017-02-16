@@ -14,20 +14,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ElvisOperation extends Value {
-    visible Value condition
-    visible Value otherwise
-    
-    /// Create a new ElvisOperation node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the ElvisOperation node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
+class ElvisOperationWriter extends ValueWriter {
     public writeNova() =>
         "#condition ?: #otherwise"
 }

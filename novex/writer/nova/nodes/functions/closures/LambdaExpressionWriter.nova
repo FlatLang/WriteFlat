@@ -24,25 +24,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class LambdaExpression extends Value implements CallableFunction, ScopeDeclaration {
-    visible Int index =>
-        parentFunctionCall.arguments.indexOf(this, defaultReturnValue: parentFunctionCall.arguments.count)
-    
-    visible LambdaExpression parentLambda => this
-    
-    /// Create a new LambdaExpression node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the LambdaExpression node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-        
-        this.scope = new Scope(this, location)
-        this.parameterList = new ParameterList(this, location)
-    }
-    
+class LambdaExpressionWriter extends ValueWriter implements CallableFunctionWriter, ScopeDeclarationWriter {
     public writeParameters() => "" {
         if (parameters.count == 1) {
             return parameters[0].toNova()

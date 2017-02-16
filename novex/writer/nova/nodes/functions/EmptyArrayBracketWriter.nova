@@ -14,16 +14,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 [AutoFinal]
-class EmptyArrayBracket extends Value {
-    /// Create a new EmptyArrayBracket node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the EmptyArrayBracket node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
+class EmptyArrayBracketWriter extends ValueWriter {
     public writeNova() => ""
 }

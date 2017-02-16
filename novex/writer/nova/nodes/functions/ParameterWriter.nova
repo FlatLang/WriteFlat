@@ -9,28 +9,7 @@ import "novex/astro/util/Location"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class Parameter extends LocalDeclaration {
-    public Value defaultValue
-    
-    visible ParameterList parentParameterList =>
-        parent.class.isOfType(ParameterList) ? (ParameterList)parent : null
-    
-    /// Create a new Parameter node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the Parameter node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
-    public cloneTo(Parameter other) => other {
-        super.cloneTo(other)
-        
-        other.defaultValue = defaultValue
-    }
-    
+class ParameterWriter extends LocalDeclarationWriter {
     public writeDefaultValue() =>
         defaultValue ?
             " = " + defaultValue.toNova() :

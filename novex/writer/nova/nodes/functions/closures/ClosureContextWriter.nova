@@ -3,8 +3,6 @@ package "novex/writer/nova/nodes/functions/closures"
 import "novex/astro/util/Location"
 import "novex/astro/tree/nodes/Node"
 
-class ClosureContext extends Node {
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
+class ClosureContextWriter extends NodeWriter {
+    
 }

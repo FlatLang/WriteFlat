@@ -11,19 +11,7 @@ import "novex/astro/util/Location"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class ClosureDeclaration extends Parameter implements CallableFunction {
-    /// Create a new ClosureDeclaration node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the ClosureDeclaration node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-        
-        parameterList = new ParameterList(this)
-    }
-    
+class ClosureDeclarationWriter extends ParameterWriter implements CallableFunctionWriter {
     public writeType() =>
         type ?
             "-> #type.toNova()" :

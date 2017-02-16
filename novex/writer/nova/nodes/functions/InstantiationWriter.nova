@@ -16,27 +16,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class Instantiation extends FunctionCall {
-    visible ObjectNotation objectNotation
-    
-    visible Instantiation parentInstantiation => this
-    
-    /// Create a new Instantiation node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the Instantiation node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
-    public addChild(Node node) {
-        objectNotation = objectNotation ?: new ObjectNotation(this)
-        
-        objectNotation.addChild(node)
-    }
-    
+class InstantiationWriter extends FunctionCallWriter {
     public writeObjectNotation() =>
         objectNotation ?
             " " + objectNotation.toNova() :

@@ -15,19 +15,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class WhileLoop extends Loop {
-    visible Value condition
-    
-    /// Create a new WhileLoop node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the WhileLoop node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
+class WhileLoopWriter extends LoopWriter {
     public writeNova() =>
         "while (#condition.toNova()) #scope.toNova()"
 }

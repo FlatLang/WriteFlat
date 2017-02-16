@@ -10,22 +10,6 @@ import "novex/astro/SyntaxMessage"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class Constructor extends BodyFunction {
-    /// Create a new Constructor node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the Constructor node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
-    /*public onAdded(Node parent) {
-        super.onAdded(parent)
-        
-        parent.addChild(new InitializationFunction(this))
-    }*/
-    
+class ConstructorWriter extends BodyFunctionWriter {
     public writeReturnType() => ""
 }

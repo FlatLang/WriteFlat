@@ -12,19 +12,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class NumericRange extends Instantiation {
-    visible Value start <=> arguments[0]
-    visible Value end <=> arguments[1]
-    
-    /// Create a new NumericRange node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the NumericRange node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
+class NumericRangeWriter extends InstantiationWriter {
     public writeNova() => "#{start?.toNova()}..#{end?.toNova()}"
 }

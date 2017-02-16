@@ -14,19 +14,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class IfStatement extends ControlStructure {
-    visible Value condition
-    
-    /// Create a new IfStatement node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the IfStatement node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
+class IfStatementWriter extends ControlStructureWriter {
     public writeNova() =>
         "if (#condition.toNova()) #scope.toNova()"
 }

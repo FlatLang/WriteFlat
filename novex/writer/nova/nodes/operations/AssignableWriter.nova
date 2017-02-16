@@ -3,7 +3,6 @@ package "novex/writer/nova/nodes/operations"
 import "novex/astro/tree/nodes/Value"
 import "novex/astro/tree/nodes/variables/VariableDeclaration"
 
-trait Assignable {
-    public onAssigned(Value value) {}
-    public onAssignedTo(VariableDeclaration declaration) {}
+trait AssignableWriter {
+    
 }

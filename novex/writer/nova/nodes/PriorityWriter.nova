@@ -11,21 +11,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class Priority extends Value implements Accessible {
-    visible Value value
-    visible Value returnedValue => (Value)value.returnedNode
-    
-    visible Type type => returnedValue.type
-    
-    /// Create a new Priority node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the Priority node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
+class PriorityWriter extends ValueWriter implements AccessibleWriter {
     public writeNova() => "(#{value.toNova()})" + writeArrayAccess() + writeAccessedNodes()
 }

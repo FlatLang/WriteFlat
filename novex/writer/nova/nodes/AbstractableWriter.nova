@@ -1,11 +1,5 @@
 package "novex/writer/nova/nodes"
 
-trait Abstractable {
-    public Bool isAbstract
-    
+trait AbstractableWriter {
     public writeAbstract() => isAbstract ? "abstract " : ""
-    
-    public cloneTo(Abstractable other) => other {
-        other.isAbstract = isAbstract
-    }
 }

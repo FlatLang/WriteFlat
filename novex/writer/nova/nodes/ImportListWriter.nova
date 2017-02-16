@@ -2,12 +2,6 @@ package "novex/writer/nova/nodes"
 
 import "novex/astro/util/Location"
 
-class ImportList extends NodeList<Import> {
-    public Import[] imports => (Import[])children
-    
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
+class ImportListWriter extends NodeListWriter<Import> {
     
 }

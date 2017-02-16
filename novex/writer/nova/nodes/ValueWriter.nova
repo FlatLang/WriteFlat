@@ -18,43 +18,7 @@ import "novex/astro/tree/nodes/functions/Instantiation"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class Value extends Node {
-    visible static final Byte VALUE = 1, POINTER = 2, REFERENCE = 3, DOUBLE_POINTER = 4
-    
-    public ArrayAccess arrayAccess
-    
-    public Accessible returnedNode => this
-    
-    public Type type <=> type
-    
-    public Bool isAssignable => this.class.isOfType(Assignable)
-    
-    public ClassDeclaration typeClass =>
-        type ?
-            parentFile.imports.firstWhere(x => { x.className && x.className == type.name })?.classDeclaration :
-            null
-    
-    visible Bool isPrimitiveType => type.isPrimitiveType
-    
-    /// Create a new Value node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the Value node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID, Type type = null) {
-        super(parent, location)
-        
-        this.type = type
-    }
-    
+class ValueWriter extends NodeWriter {
     public writeType() => type.toNova()
     public writeArrayAccess() => arrayAccess ? arrayAccess.toNova() : ""
-    
-    public cloneTo(Value other) => other {
-        super.cloneTo(other)
-        
-        other.arrayAccess = arrayAccess
-        other.type = type
-    }
 }

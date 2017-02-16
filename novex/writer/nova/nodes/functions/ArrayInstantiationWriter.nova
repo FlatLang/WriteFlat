@@ -16,21 +16,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ArrayInstantiation extends Instantiation {
-    visible Value[] dimensions = new Value[]
-    
-    visible ArrayType arrayType => (ArrayType)declaration.type
-    
-    /// Create a new ArrayInstantiation node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the ArrayInstantiation node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
+class ArrayInstantiationWriter extends InstantiationWriter {
     public writeDimensions() => dimensions.map({ "[#{_.toNova()}]" }).join()
     
     public writeNova() => "new #arrayType.type.name" + writeDimensions()

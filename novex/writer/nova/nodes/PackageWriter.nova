@@ -7,22 +7,6 @@ import "novex/astro/SyntaxMessage"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class Package extends Node {
-    public String location
-    
-    static HashMap<String, Array<NovaFile>> filesMap = new HashMap()
-    
-    visible NovaFile[] files => filesMap[location]
-    
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
-    public static generateDefaultPackage(Node parent = null, Location location = Location.INVALID) =>
-        new Package(parent, location)
-    
-    validateLocation() => true
-    validateAlias() => true
-    
+class PackageWriter extends NodeWriter {
     public writeNova() => location ? "package \"#location\"" : ""
 }

@@ -8,16 +8,6 @@ import "novex/astro/SyntaxMessage"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class AccessorFunction extends PropertyFunction {
-    /// Create a new AccessorFunction node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the AccessorFunction node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
+class AccessorFunctionWriter extends PropertyFunctionWriter {
     public writeHeader() => (disabled ? "no " : "") + "get"
 }

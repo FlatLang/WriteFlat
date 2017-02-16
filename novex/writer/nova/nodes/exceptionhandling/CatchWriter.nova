@@ -15,24 +15,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class Catch extends Node implements ScopeDeclaration {
-    visible Bool soft = false
-    
-    visible Type exception
-    visible String variable
-    
-    /// Create a new Catch node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the Catch node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-        
-        scope = new Scope(this, location)
-    }
-    
+class CatchWriter extends NodeWriter implements ScopeDeclarationWriter {
     public writeException() =>
         exception.toNova() + (variable ? " #variable" : "")
     

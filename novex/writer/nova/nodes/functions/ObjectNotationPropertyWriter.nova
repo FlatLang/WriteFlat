@@ -18,16 +18,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ObjectNotationProperty extends Assignment {
-    /// Create a new ObjectNotationProperty node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the ObjectNotationProperty node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
+class ObjectNotationPropertyWriter extends AssignmentWriter {
     public writeNova() => "#assigned.toNova(): #assignment.toNova()"
 }

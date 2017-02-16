@@ -13,57 +13,7 @@ import "novex/astro/util/Location"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class FieldDeclaration extends InstanceDeclaration implements Assignable {
-    String[] extraDeclarations
-    
-    public Value initializationValue
-    
-    visible Value accessorValue
-    
-    visible Bool isTwoWayAccessor = false
-    
-    visible var AccessorFunction accessor
-    visible var MutatorFunction mutator
-    
-    /// Create a new FieldDeclaration node.
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the FieldDeclaration node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
-    public addChild(Node child) {
-        if (addGlobalNode(child)) {
-            
-        } else if (child.class.isOfType(AccessorFunction)) {
-            accessor = (AccessorFunction)child
-        } else if (child.class.isOfType(MutatorFunction)) {
-            mutator = (MutatorFunction)child
-        } else {
-            SyntaxMessage.error("Statement '#child' used in wrong context", child)
-        }
-    }
-    
-    public generateTemporaryScopeNode() -> Node {
-        return new BodyFunction(this)
-    }
-    
-    public onAdded(Node to) {
-        super.onAdded(to)
-        
-        if (extraDeclarations) {
-            for (name in extraDeclarations) {
-                let declaration = cloneTo(new FieldDeclaration(parent, location))
-                declaration.name = name
-                declaration.extraDeclarations = null
-                
-                to.addChild(declaration)
-            }
-        }
-    }
-    
+class FieldDeclarationWriter extends InstanceDeclarationWriter implements AssignableWriter {
     public writeInitializationValue() => initializationValue ? " = #initializationValue.toNova()" : ""
     public writeAccessorValue() =>
         accessorValue ?
@@ -86,13 +36,4 @@ class FieldDeclaration extends InstanceDeclaration implements Assignable {
     }
     
     public writeNova() => super.writeNova() + writeInitializationValue() + writeAccessorValue() + writePropertyFunctions()
-    
-    public cloneTo(FieldDeclaration other) => other {
-        super.cloneTo(other)
-        
-        other.initializationValue = initializationValue
-        other.accessorValue = accessorValue
-        other.isTwoWayAccessor = isTwoWayAccessor
-        other.extraDeclarations = extraDeclarations
-    }
 }

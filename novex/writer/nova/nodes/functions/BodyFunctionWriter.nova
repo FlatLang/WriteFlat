@@ -12,35 +12,7 @@ import "novex/astro/SyntaxMessage"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class BodyFunction extends FunctionDeclaration implements ScopeDeclaration {
-    visible Node inlineBody
-    
-    visible Bool implicitType = false
-    
-    /// Create a new BodyFunction node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the BodyFunction node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-        
-        scope = new Scope(this, location)
-    }
-    
-    public addChild(Node child) {
-        if (!addGlobalNode(child)) {
-            scope.children.add(child)
-        }
-        
-        super.addChild(child)
-    }
-    
-    public generateTemporaryScopeNode() -> Node {
-        return new Scope(this)
-    }
-    
+class BodyFunctionWriter extends FunctionDeclarationWriter implements ScopeDeclarationWriter {
     public writeReturnType() =>
         implicitType ?
             "" :
@@ -59,12 +31,4 @@ class BodyFunction extends FunctionDeclaration implements ScopeDeclaration {
     
     public writeNova() =>
         writeHeader() + writeBody()
-    
-    public cloneTo(BodyFunction other) => other {
-        super.cloneTo(other)
-        
-        other.scope = scope
-        other.inlineBody = inlineBody
-        other.implicitType = implicitType
-    }
 }

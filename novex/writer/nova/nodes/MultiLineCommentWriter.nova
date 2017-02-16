@@ -12,14 +12,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 [AutoFinal]
-class MultiLineComment extends Comment {
-    /// Create a new MultiLineComment node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the MultiLineComment node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID, public String contents = null) {
-        super(parent, location, contents)
-    }
+class MultiLineCommentWriter extends CommentWriter {
+    
 }

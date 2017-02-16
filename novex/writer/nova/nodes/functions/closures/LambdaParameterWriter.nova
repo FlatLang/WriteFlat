@@ -11,14 +11,6 @@ import "novex/astro/tree/nodes/functions/FunctionCall"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class LambdaParameter extends Parameter {
-    /// Create a new LambdaParameter node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the LambdaParameter node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
+class LambdaParameterWriter extends ParameterWriter {
+    
 }

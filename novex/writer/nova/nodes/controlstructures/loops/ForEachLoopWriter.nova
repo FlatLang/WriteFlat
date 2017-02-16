@@ -17,27 +17,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ForEachLoop extends Loop {
-    visible LocalDeclaration variable
-    visible Value iterator
-    
-    /// Create a new ForEachLoop node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the ForEachLoop node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
-    public cloneTo(ForEachLoop other) => other {
-        super.cloneTo(other)
-        
-        other.variable = variable
-        other.iterator = iterator
-    }
-    
+class ForEachLoopWriter extends LoopWriter {
     public writeNova() =>
         "for (#variable.name in #iterator.toNova()) #scope.toNova()"
 }

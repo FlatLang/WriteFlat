@@ -11,30 +11,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class InstanceDeclaration extends VariableDeclaration {
-    public Bool isStatic = false
-    visible Bool isInstance => !isStatic
+class InstanceDeclarationWriter extends VariableDeclarationWriter {
     
-    public String visibility = ""
-    
-    public Bool isPublic => visibility == "public"
-    public Bool isPrivate => visibility.count == 0 || visibility == "private"
-    public Bool isProtected => visibility == "protected"
-    
-    /// Create a new InstanceDeclaration node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the InstanceDeclaration node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
-    public cloneTo(InstanceDeclaration other) => other {
-        super.cloneTo(other)
-        
-        other.isStatic = isStatic
-        other.visibility = visibility
-    }
 }

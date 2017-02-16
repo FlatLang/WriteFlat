@@ -9,22 +9,6 @@ import "novex/astro/util/Location"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class ArrayBracketOverload extends Node {
-    visible LocalDeclaration index
-    
-    /// Create a new ArrayBracketOverload node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the ArrayBracketOverload node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
-    public generateTemporaryScopeNode() -> Node {
-        return new BodyFunction(this)
-    }
-    
+class ArrayBracketOverloadWriter extends NodeWriter {
     public writeNova() => "this[#{index}]"
 }

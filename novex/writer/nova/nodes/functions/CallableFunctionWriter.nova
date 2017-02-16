@@ -13,13 +13,6 @@ import "novex/astro/SyntaxMessage"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-trait CallableFunction extends Identifier implements GenericCompatible {
-    visible ParameterList parameterList
-    visible Parameter[] parameters => parameterList.parameters
+trait CallableFunctionWriter extends IdentifierWriter implements GenericCompatibleWriter {
     
-    public compatibleArguments(Value[] arguments) -> Bool {
-        return true
-    }
-    
-    public parseName(String name) => (this.name = name).isIdentifier
 }

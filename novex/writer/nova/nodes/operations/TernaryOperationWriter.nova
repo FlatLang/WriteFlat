@@ -14,21 +14,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class TernaryOperation extends Value {
-    visible Value condition
-    visible Value trueValue
-    visible Value falseValue
-    
-    /// Create a new TernaryOperation node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the TernaryOperation node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
+class TernaryOperationWriter extends ValueWriter {
     public writeNova() =>
         "#condition.toNova() ? #trueValue.toNova() : #falseValue.toNova()"
 }

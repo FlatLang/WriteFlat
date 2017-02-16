@@ -8,20 +8,6 @@ import "novex/astro/util/Location"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class LocalDeclaration extends VariableDeclaration implements Assignable {
-    visible Bool isImplicit => false
+class LocalDeclarationWriter extends VariableDeclarationWriter implements AssignableWriter {
     
-    /// Create a new LocalDeclaration node.
-    /// 
-    /// #exampleInputs
-    /// 
-    /// parent:   The parent of the LocalDeclaration node.
-    /// location: The location of the input text in the source file.
-    public construct(Node parent = null, Location location = Location.INVALID) {
-        super(parent, location)
-    }
-    
-    public cloneTo(LocalDeclaration other) => other {
-        super.cloneTo(other)
-    }
 }
