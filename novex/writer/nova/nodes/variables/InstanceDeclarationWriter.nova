@@ -1,4 +1,4 @@
-package "novex/astro/tree/nodes/variables"
+package "novex/writer/nova/nodes/variables"
 
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/SyntaxErrorException"

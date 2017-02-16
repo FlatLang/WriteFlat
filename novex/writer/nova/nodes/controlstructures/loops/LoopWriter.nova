@@ -1,4 +1,4 @@
-package "novex/astro/tree/nodes/controlstructures/loops"
+package "novex/writer/nova/nodes/controlstructures/loops"
 
 import "novex/astro/tree/nodes/controlstructures/ControlStructure"
 import "novex/astro/tree/nodes/Node"

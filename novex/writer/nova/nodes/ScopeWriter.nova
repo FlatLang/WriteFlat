@@ -1,4 +1,4 @@
-package "novex/astro/tree/nodes"
+package "novex/writer/nova/nodes"
 
 import "nova/datastruct/Pair"
 import "nova/datastruct/list/List"

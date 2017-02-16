@@ -1,4 +1,4 @@
-package "novex/astro/tree/nodes/generics"
+package "novex/writer/nova/nodes/generics"
 
 import "novex/astro/util/Location"
 import "novex/astro/tree/nodes/Node"

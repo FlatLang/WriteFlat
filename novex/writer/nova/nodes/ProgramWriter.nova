@@ -1,4 +1,4 @@
-package "novex/astro/tree/nodes"
+package "novex/writer/nova/nodes"
 
 import "novex/astro/Astro"
 import "novex/astro/tree/SyntaxTree"

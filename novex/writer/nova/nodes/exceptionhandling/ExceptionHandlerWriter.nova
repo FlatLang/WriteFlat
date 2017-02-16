@@ -1,4 +1,4 @@
-package "novex/astro/tree/nodes/exceptionhandling"
+package "novex/writer/nova/nodes/exceptionhandling"
 
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/util/Location"

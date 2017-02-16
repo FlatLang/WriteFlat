@@ -1,4 +1,4 @@
-package "novex/astro/tree/nodes/functions"
+package "novex/writer/nova/nodes/functions"
 
 import "novex/astro/InvalidParseException"
 import "novex/astro/tree/nodes/Node"

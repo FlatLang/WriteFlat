@@ -1,4 +1,4 @@
-package "novex/astro/tree/nodes/arrays"
+package "novex/writer/nova/nodes/arrays"
 
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/Value"

@@ -1,4 +1,4 @@
-package "novex/astro/tree/nodes/operations"
+package "novex/writer/nova/nodes/operations"
 
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/InvalidParseException"
