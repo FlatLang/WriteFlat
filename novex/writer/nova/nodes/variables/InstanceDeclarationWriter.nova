@@ -1,5 +1,6 @@
 package "novex/writer/nova/nodes/variables"
 
+import "nova/io/OutputStream"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/util/Location"

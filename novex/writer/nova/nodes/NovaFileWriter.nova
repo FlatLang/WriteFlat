@@ -1,5 +1,6 @@
 package "novex/writer/nova/nodes"
 
+import "nova/io/OutputStream"
 import "nova/io/File"
 import "nova/io/FileReader"
 import "nova/datastruct/list/Stack"

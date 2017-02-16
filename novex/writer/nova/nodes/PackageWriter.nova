@@ -1,5 +1,6 @@
 package "novex/writer/nova/nodes"
 
+import "nova/io/OutputStream"
 import "nova/datastruct/HashMap"
 
 import "novex/astro/util/Location"

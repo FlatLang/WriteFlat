@@ -1,5 +1,6 @@
 package "novex/writer/nova/nodes/operations"
 
+import "nova/io/OutputStream"
 import "novex/astro/SyntaxMessage"
 import "novex/astro/tree/nodes/Value"
 import "novex/astro/tree/nodes/Node"

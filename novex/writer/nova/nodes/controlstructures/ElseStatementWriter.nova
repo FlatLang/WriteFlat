@@ -1,5 +1,6 @@
 package "novex/writer/nova/nodes/controlstructures"
 
+import "nova/io/OutputStream"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/Scope"
 import "novex/astro/SyntaxErrorException"

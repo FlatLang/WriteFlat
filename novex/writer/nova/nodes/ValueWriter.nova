@@ -1,5 +1,6 @@
 package "novex/writer/nova/nodes"
 
+import "nova/io/OutputStream"
 import "nova/datastruct/Tuple2"
 
 import "novex/astro/SyntaxMessage"
@@ -19,6 +20,6 @@ import "novex/astro/tree/nodes/functions/Instantiation"
 import "novex/astro/util/CompilerStringFunctions"
 
 class ValueWriter extends NodeWriter {
-    public writeType() => type.toNova()
-    public writeArrayAccess() => arrayAccess ? arrayAccess.toNova() : ""
+    public writeType(OutputStream writer) => type.toNova()
+    public writeArrayAccess(OutputStream writer) => arrayAccess ? arrayAccess.toNova() : ""
 }

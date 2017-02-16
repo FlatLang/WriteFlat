@@ -1,5 +1,6 @@
 package "novex/writer/nova/nodes/functions/closures"
 
+import "nova/io/OutputStream"
 import "novex/astro/util/Location"
 import "novex/astro/tree/nodes/Node"
 

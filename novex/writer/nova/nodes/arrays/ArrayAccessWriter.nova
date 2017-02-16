@@ -1,5 +1,6 @@
 package "novex/writer/nova/nodes/arrays"
 
+import "nova/io/OutputStream"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/Value"
 import "novex/astro/SyntaxErrorException"
