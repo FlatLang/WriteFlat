@@ -1,0 +1,9 @@
+package "novex/astro/tree/nodes/controlstructures/loops"
+
+import "novex/astro/tree/nodes/controlstructures/ControlStructure"
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/util/Location"
+
+class Loop extends ControlStructure {
+    
+}

@@ -1,0 +1,39 @@
+package "novex/astro/tree/nodes/variables"
+
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/InvalidParseException"
+import "novex/astro/util/Location"
+import "novex/astro/tree/nodes/Type"
+import "novex/astro/tree/nodes/Identifier"
+import "novex/astro/tree/nodes/annotations/Modifier"
+import "novex/astro/tree/nodes/annotations/Modifier.ModifierFunctionMap"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @Node extension that represents 
+///
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+class VariableDeclaration extends Identifier {
+    /// Create a new VariableDeclaration node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the VariableDeclaration node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+        
+        
+    }
+    
+    public writeNova() => (type ? writeType() + " " : "") + name
+    
+    public cloneTo(VariableDeclaration other) => other {
+        super.cloneTo(other)
+        
+        
+    }
+}

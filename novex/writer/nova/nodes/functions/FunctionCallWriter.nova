@@ -1,0 +1,55 @@
+package "novex/astro/tree/nodes/functions"
+
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Value"
+import "novex/astro/tree/nodes/variables/Variable"
+import "novex/astro/tree/nodes/variables/VariableDeclaration"
+import "novex/astro/tree/nodes/functions/closures/ClosureDeclaration"
+import "novex/astro/tree/nodes/functions/closures/LambdaExpression"
+import "novex/astro/tree/nodes/ClassDeclaration"
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/InvalidParseException"
+import "novex/astro/util/Location"
+import "novex/astro/tree/nodes/Accessible"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @Variable extension that represents 
+///
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+class FunctionCall extends Variable {
+    visible FunctionArgumentList argumentList
+    
+    visible Value[] arguments => argumentList.arguments
+    
+    public Bool isAssignable => false
+    
+    visible FunctionDeclaration function => (FunctionDeclaration)declaration
+    
+    visible FunctionCall parentFunctionCall => this
+    
+    /// Create a new FunctionCall node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the FunctionCall node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+        
+        argumentList = new FunctionArgumentList(this, location)
+    }
+    
+    public cloneTo(FunctionCall other) => other {
+        super.cloneTo(other)
+        
+        other.argumentList = argumentList
+    }
+    
+    public writeName() => name
+    
+    public writeNova() => writeName() + "#argumentList" + writeArrayAccess() + writeAccessedNodes()
+    public toString() => toNova()
+}

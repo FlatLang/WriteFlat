@@ -1,0 +1,28 @@
+package "novex/astro/tree/nodes"
+
+import "novex/astro/util/Location"
+
+trait ScopeDeclaration extends Node {
+    visible Scope scope
+    
+    visible Scope parentScope => parentWithScope.scope
+    visible Bool isWithinScope => parentScope != null
+    
+    visible Node parentWithScope {
+        get {
+            if (!parent) return null
+            
+            return parent.containsScope ? parent : parent.parentWithScope
+        }
+        
+        no set
+    }
+    
+    // public addGlobalNode(Node child) => super.addGlobalNode(child) {
+    //     if (child.class.isOfType(ExternalBlock)) {
+            
+    //     }
+    // }
+    
+    visible Bool containsScope => scope != null
+}

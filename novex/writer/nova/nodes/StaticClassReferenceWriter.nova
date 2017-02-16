@@ -1,0 +1,26 @@
+package "novex/astro/tree/nodes"
+
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @Node extension that represents 
+///
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+class StaticClassReference extends Identifier implements Accessible {
+    /// Create a new StaticClassReference node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the StaticClassReference node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID, String name = null) {
+        super(parent, location)
+        
+        this.name = name
+        this.type = Type.parse(name)
+    }
+}

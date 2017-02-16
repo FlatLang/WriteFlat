@@ -1,0 +1,40 @@
+package "novex/astro/tree/nodes/operations"
+
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/InvalidParseException"
+import "novex/astro/SyntaxMessage"
+import "novex/astro/tree/nodes/Value"
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+class Operation extends Value {
+    visible Operator[] operators
+    visible Value[] operands
+    
+    /// Create a new Operation node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the Operation node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+        
+        operators = new Operator[]
+        operands = new Value[]
+    }
+    
+    public writeNova() -> String {
+        var output = ""
+        
+        for (i in 0..operators.count) {
+            output += "#operands[i] #operators[i] "
+        }
+        
+        output += "#operands.last"
+        
+        return output
+    }
+}

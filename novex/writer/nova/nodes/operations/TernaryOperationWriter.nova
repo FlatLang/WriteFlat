@@ -1,0 +1,34 @@
+package "novex/astro/tree/nodes/operations"
+
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/InvalidParseException"
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Value"
+import "novex/astro/tree/nodes/Accessible"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @Value extension that represents 
+///
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+class TernaryOperation extends Value {
+    visible Value condition
+    visible Value trueValue
+    visible Value falseValue
+    
+    /// Create a new TernaryOperation node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the TernaryOperation node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+    }
+    
+    public writeNova() =>
+        "#condition.toNova() ? #trueValue.toNova() : #falseValue.toNova()"
+}

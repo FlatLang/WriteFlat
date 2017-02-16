@@ -1,0 +1,39 @@
+package "novex/astro/tree/nodes/exceptionhandling"
+
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/InvalidParseException"
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Type"
+import "novex/astro/tree/nodes/Scope"
+import "novex/astro/tree/nodes/ScopeDeclaration"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// ExceptionHandler extension that represents the declaration of a
+/// try node type. See {@link #decodeStatement(Node, String, Location, boolean)}
+/// for more details on what correct inputs look like.
+/// 
+/// @author    Braden Steffaniak
+/// @since    v0.1 Mar 22, 2014 at 4:01:38 PM
+/// @version    v0.2.38 Dec 6, 2014 at 5:19:17 PM
+class Try extends ExceptionHandler implements ScopeDeclaration {
+    visible static String IDENTIFIER = "try"
+    
+    visible Try parentTry => this
+    
+    /// Create a new Try node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the Try node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+        
+        scope = new Scope(this, location)
+    }
+    
+    public writeNova() =>
+        "try #scope.toNova()"
+}

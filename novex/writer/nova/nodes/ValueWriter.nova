@@ -1,0 +1,60 @@
+package "novex/astro/tree/nodes"
+
+import "nova/datastruct/Tuple2"
+
+import "novex/astro/SyntaxMessage"
+import "novex/astro/InvalidParseException"
+import "novex/astro/util/Location"
+import "novex/astro/tree/nodes/arrays/ArrayAccess"
+import "novex/astro/tree/nodes/operations/Operation"
+import "novex/astro/tree/nodes/operations/UnaryOperation"
+import "novex/astro/tree/nodes/operations/TernaryOperation"
+import "novex/astro/tree/nodes/operations/ElvisOperation"
+import "novex/astro/tree/nodes/operations/Assignable"
+import "novex/astro/tree/nodes/variables/Variable"
+import "novex/astro/tree/nodes/functions/FunctionCall"
+import "novex/astro/tree/nodes/functions/ArrayInstantiation"
+import "novex/astro/tree/nodes/functions/Instantiation"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+class Value extends Node {
+    visible static final Byte VALUE = 1, POINTER = 2, REFERENCE = 3, DOUBLE_POINTER = 4
+    
+    public ArrayAccess arrayAccess
+    
+    public Accessible returnedNode => this
+    
+    public Type type <=> type
+    
+    public Bool isAssignable => this.class.isOfType(Assignable)
+    
+    public ClassDeclaration typeClass =>
+        type ?
+            parentFile.imports.firstWhere(x => { x.className && x.className == type.name })?.classDeclaration :
+            null
+    
+    visible Bool isPrimitiveType => type.isPrimitiveType
+    
+    /// Create a new Value node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the Value node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID, Type type = null) {
+        super(parent, location)
+        
+        this.type = type
+    }
+    
+    public writeType() => type.toNova()
+    public writeArrayAccess() => arrayAccess ? arrayAccess.toNova() : ""
+    
+    public cloneTo(Value other) => other {
+        super.cloneTo(other)
+        
+        other.arrayAccess = arrayAccess
+        other.type = type
+    }
+}

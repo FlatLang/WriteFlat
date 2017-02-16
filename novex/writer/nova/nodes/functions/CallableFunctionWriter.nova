@@ -1,0 +1,25 @@
+package "novex/astro/tree/nodes/functions"
+
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Identifier"
+import "novex/astro/InvalidParseException"
+import "novex/astro/tree/nodes/annotations/Annotation"
+import "novex/astro/tree/AnnotationSearchResult"
+import "novex/astro/tree/nodes/generics/GenericParameter"
+import "novex/astro/tree/nodes/generics/GenericCompatible"
+import "novex/astro/tree/nodes/Value"
+import "novex/astro/tree/SyntaxTree"
+import "novex/astro/SyntaxMessage"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+trait CallableFunction extends Identifier implements GenericCompatible {
+    visible ParameterList parameterList
+    visible Parameter[] parameters => parameterList.parameters
+    
+    public compatibleArguments(Value[] arguments) -> Bool {
+        return true
+    }
+    
+    public parseName(String name) => (this.name = name).isIdentifier
+}

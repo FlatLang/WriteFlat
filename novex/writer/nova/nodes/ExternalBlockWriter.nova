@@ -1,0 +1,42 @@
+package "novex/astro/tree/nodes"
+
+import "nova/regex/Pattern"
+
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/InvalidParseException"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @Node extension that represents 
+///
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+[AutoFinal]
+class ExternalBlock extends Node implements ScopeDeclaration {
+    public String[] targets
+    
+    public var String contents
+    
+    /// Create a new ExternalBlock node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the ExternalBlock node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID, public String[] targets) {
+        super(parent, location)
+        
+        scope = new Scope(this, location)
+    }
+    
+    public writeTargets() =>
+        targets.count > 0 ?
+            targets.map({ " #_" }).join(",") :
+            ""
+    
+    public writeContents() => " {\n#contents\n}"
+    
+    public writeNova() => "external" + writeTargets() + writeContents()
+}

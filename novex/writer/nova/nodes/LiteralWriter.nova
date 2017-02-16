@@ -1,0 +1,29 @@
+package "novex/astro/tree/nodes"
+
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @Value extension that represents 
+/// 
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+class Literal extends Value implements Accessible {
+    public String value
+    
+    /// Create a new Literal node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the Literal node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+        
+        
+    }
+    
+    public writeNova() => value + writeArrayAccess() + writeAccessedNodes()
+}

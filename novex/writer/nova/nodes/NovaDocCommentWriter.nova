@@ -1,0 +1,25 @@
+package "novex/astro/tree/nodes"
+
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/InvalidParseException"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @Node extension that represents 
+///
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+[AutoFinal]
+class NovaDocComment extends Comment {
+    /// Create a new NovaDocComment node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the NovaDocComment node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID, public String contents = null) {
+        super(parent, location, contents)
+    }
+}

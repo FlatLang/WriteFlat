@@ -1,0 +1,34 @@
+package "novex/astro/tree/nodes"
+
+import "novex/astro/SyntaxMessage"
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+class Import extends Node {
+    public Bool used, userAdded
+    
+    public String alias, importLocation
+    
+    visible String parentLocation => importLocation.substring(0, importLocation.lastIndexOf("/", defaultReturnValue: 0))
+    visible String className => importLocation.substring(importLocation.lastIndexOf("/") + 1)
+    
+    visible Bool isDefault => NovaFile.DEFAULT_IMPORTS.any({ _.equals(importLocation) })
+    
+    public static String IDENTIFIER = "import"
+    public static String ALIAS_IDENTIFIER = "as"
+    
+    visible ClassDeclaration classDeclaration => program.getClassDeclaration(importLocation)
+    
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+        
+        userAdded = true
+    }
+    
+    public getClassLocation(Bool aliased = false) =>
+    	aliased && alias ? "#parentLocation/#alias" : importLocation
+    
+    public writeNova() => "import \"#importLocation\""
+}

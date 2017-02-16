@@ -1,0 +1,34 @@
+package "novex/astro/tree/nodes"
+
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/util/Location"
+import "novex/astro/tree/nodes/operations/Assignable"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @Value extension that represents 
+///
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+class Identifier extends Value implements Accessible, Assignable {
+    public String name
+    
+    /// Create a new Identifier node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the Identifier node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID, public String name = null) {
+        super(parent, location)
+    }
+    
+    public writeNova() => name + writeArrayAccess() + writeAccessedNodes()
+    
+    public cloneTo(Identifier other) => other {
+        super.cloneTo(other)
+        
+        other.name = name
+    }
+}

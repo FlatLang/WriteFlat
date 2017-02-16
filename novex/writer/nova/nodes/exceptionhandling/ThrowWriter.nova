@@ -1,0 +1,32 @@
+package "novex/astro/tree/nodes/exceptionhandling"
+
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/InvalidParseException"
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Value"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @Node extension that represents 
+///
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+class Throw extends ExceptionHandler {
+    visible Bool soft = false
+    visible Value exception
+    
+    /// Create a new Throw node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the Throw node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+    }
+    
+    public writeNova() =>
+        "#{soft ? "softly" : ""} throw #exception.toNova()".trim()
+}

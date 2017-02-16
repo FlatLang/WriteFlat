@@ -1,0 +1,18 @@
+package "novex/astro/tree/nodes/functions/closures"
+
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Type"
+import "novex/astro/tree/nodes/functions/Parameter"
+import "novex/astro/util/Location"
+
+class ClosureParameter extends Parameter {
+    /// Create a new ClosureParameter node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the ClosureParameter node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+    }
+}

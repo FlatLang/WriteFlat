@@ -1,0 +1,54 @@
+package "novex/astro/tree/nodes/functions"
+
+import "novex/astro/SyntaxMessage"
+import "novex/astro/InvalidParseException"
+import "novex/astro/tree/SyntaxTree"
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Type"
+import "novex/astro/tree/nodes/variables/InstanceDeclaration"
+import "novex/astro/tree/nodes/variables/VariableDeclaration"
+import "novex/astro/tree/nodes/generics/GenericParameter"
+import "novex/astro/tree/nodes/generics/GenericCompatible"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+class FunctionDeclaration extends InstanceDeclaration implements CallableFunction, GenericCompatible {
+    visible FunctionDeclaration parentFunction => this
+    
+    visible Parameter objectReference
+    
+    /// Create a new FunctionDeclaration node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the FunctionDeclaration node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+        
+        parameterList = new ParameterList(this)
+        genericParameters = new GenericParameter[0]
+    }
+        
+    [Override]
+    public writeAnnotationSeparator() => "\n"
+    
+    public writeReturnType() => type ? " -> #type" : ""
+    
+    public writeHeader() =>
+        "#name".replace(/\s+/, " ").trim() +
+        writeGenericParameters() +
+        "#parameterList.toNova()" +
+        writeReturnType()
+    
+    public writeNova() => writeHeader()
+    
+    public cloneTo(FunctionDeclaration other) => other {
+        super.cloneTo(other)
+        GenericCompatible.super.cloneTo(other)
+        
+        other.parameterList = parameterList
+        other.objectReference = objectReference
+    }
+}

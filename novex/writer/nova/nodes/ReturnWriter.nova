@@ -1,0 +1,34 @@
+package "novex/astro/tree/nodes"
+
+import "novex/astro/InvalidParseException"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @Node extension that represents 
+///
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+class Return extends Node {
+    visible Value value
+    
+    /// Create a new Return node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the Return node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID, Value value = null) {
+        super(parent, location)
+        
+        this.value = value
+    }
+    
+    public writeValue() =>
+        value ?
+            value.toNova() :
+            ""
+    
+    public writeNova() => "return #writeValue()".trim()
+}

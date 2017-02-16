@@ -1,0 +1,41 @@
+package "novex/astro/tree/nodes/exceptionhandling"
+
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/InvalidParseException"
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Type"
+import "novex/astro/tree/nodes/Scope"
+import "novex/astro/tree/nodes/ScopeDeclaration"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @Node extension that represents 
+///
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+class Catch extends Node implements ScopeDeclaration {
+    visible Bool soft = false
+    
+    visible Type exception
+    visible String variable
+    
+    /// Create a new Catch node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the Catch node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+        
+        scope = new Scope(this, location)
+    }
+    
+    public writeException() =>
+        exception.toNova() + (variable ? " #variable" : "")
+    
+    public writeNova() =>
+        "catch #{soft ? "all" : ""}".trim() + " (#writeException()) #scope.toNova()"
+}

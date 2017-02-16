@@ -1,0 +1,33 @@
+package "novex/astro/tree/nodes/functions"
+
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/InvalidParseException"
+import "novex/astro/util/Location"
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Value"
+import "novex/astro/tree/nodes/NodeList"
+import "novex/astro/tree/nodes/variables/VariableDeclaration"
+import "novex/astro/tree/nodes/variables/Variable"
+import "novex/astro/tree/nodes/operations/Assignment"
+import "novex/astro/tree/nodes/operations/Operator"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @Assignment extension that represents 
+///
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+class ObjectNotationProperty extends Assignment {
+    /// Create a new ObjectNotationProperty node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the ObjectNotationProperty node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+    }
+    
+    public writeNova() => "#assigned.toNova(): #assignment.toNova()"
+}

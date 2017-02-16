@@ -1,0 +1,27 @@
+package "novex/astro/tree/nodes/variables"
+
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Value"
+import "novex/astro/tree/nodes/Type"
+import "novex/astro/tree/nodes/operations/Assignable"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+class LocalDeclaration extends VariableDeclaration implements Assignable {
+    visible Bool isImplicit => false
+    
+    /// Create a new LocalDeclaration node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the LocalDeclaration node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+    }
+    
+    public cloneTo(LocalDeclaration other) => other {
+        super.cloneTo(other)
+    }
+}

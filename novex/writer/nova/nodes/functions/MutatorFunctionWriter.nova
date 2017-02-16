@@ -1,0 +1,23 @@
+package "novex/astro/tree/nodes/functions"
+
+import "novex/astro/InvalidParseException"
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Scope"
+import "novex/astro/util/Location"
+import "novex/astro/SyntaxMessage"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+class MutatorFunction extends PropertyFunction {
+    /// Create a new MutatorFunction node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the MutatorFunction node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+    }
+    
+    public writeHeader() => (disabled ? "no " : "") + "set"
+}

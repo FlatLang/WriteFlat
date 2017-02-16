@@ -1,0 +1,41 @@
+package "novex/astro/tree/nodes/controlstructures"
+
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Scope"
+import "novex/astro/SyntaxErrorException"
+import "novex/astro/SyntaxMessage"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+/// @ControlStructure extension that represents 
+///
+/// author: Braden Steffaniak
+/// since: 
+/// version: 
+class ElseStatement extends ControlStructure {
+    visible IfStatement inlineIf
+    
+    public Scope scope => inlineIf ? inlineIf.scope : scope {
+        set {
+            if (inlineIf) {
+                inlineIf.scope = value
+            } else {
+                scope = value
+            }
+        }
+    }
+    
+    /// Create a new ElseStatement node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the ElseStatement node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+    }
+    
+    public writeNova() =>
+        "else " + (inlineIf ? inlineIf.toNova() : scope.toNova())
+}

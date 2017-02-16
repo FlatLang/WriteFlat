@@ -1,0 +1,33 @@
+package "novex/astro/tree/nodes/functions/closures"
+
+import "novex/astro/tree/nodes/Node"
+import "novex/astro/tree/nodes/Type"
+import "novex/astro/tree/nodes/Value"
+import "novex/astro/tree/nodes/functions/Parameter"
+import "novex/astro/tree/nodes/functions/ParameterList"
+import "novex/astro/tree/nodes/functions/CallableFunction"
+import "novex/astro/tree/nodes/generics/GenericParameter"
+import "novex/astro/util/Location"
+
+import "novex/astro/util/CompilerStringFunctions"
+
+class ClosureDeclaration extends Parameter implements CallableFunction {
+    /// Create a new ClosureDeclaration node.
+    /// 
+    /// #exampleInputs
+    /// 
+    /// parent:   The parent of the ClosureDeclaration node.
+    /// location: The location of the input text in the source file.
+    public construct(Node parent = null, Location location = Location.INVALID) {
+        super(parent, location)
+        
+        parameterList = new ParameterList(this)
+    }
+    
+    public writeType() =>
+        type ?
+            "-> #type.toNova()" :
+            ""
+    
+    public writeNova() => ("#{name}#parameterList.toNova() " + writeType()).trim() + writeDefaultValue()
+}
