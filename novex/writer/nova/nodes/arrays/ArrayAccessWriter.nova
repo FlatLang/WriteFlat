@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/arrays"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/Value"
 import "novex/astro/SyntaxErrorException"
@@ -15,5 +16,5 @@ import "novex/astro/util/Location"
 /// since:   v0.2 Mar 24, 2014 at 10:45:29 PM
 /// version: v0.2.45 Oct 20, 2016 at 10:19:22 PM
 class ArrayAccessWriter extends NodeWriter {
-    public writeNova() => dimensions.map({ "[#{_.toNova()}]" }).join()
+    public writeNova(OutputStream writer = new StringBuilder()) => writer.write(dimensions.map({ "[#{_.toNova()}]" }).join())
 }

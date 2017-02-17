@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/controlstructures/loops"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/InvalidParseException"
 import "novex/astro/util/Location"
@@ -17,6 +18,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 class WhileLoopWriter extends LoopWriter {
-    public writeNova() =>
-        "while (#condition.toNova()) #scope.toNova()"
+    public writeNova(OutputStream writer = new StringBuilder()) =>
+        writer.write("while (#condition.toNova()) #scope.toNova()")
 }

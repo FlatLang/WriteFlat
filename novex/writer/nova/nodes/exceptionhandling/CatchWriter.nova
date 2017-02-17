@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/exceptionhandling"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/InvalidParseException"
 import "novex/astro/tree/nodes/Node"
@@ -17,9 +18,13 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 class CatchWriter extends NodeWriter implements ScopeDeclarationWriter {
-    public writeException() =>
-        exception.toNova() + (variable ? " #variable" : "")
+    public writeException(OutputStream writer = new StringBuilder()) => writer {
+        exception.toNova(writer)
+        writer.write(variable ? " #variable" : "")
+    }
     
-    public writeNova() =>
-        "catch #{soft ? "all" : ""}".trim() + " (#writeException()) #scope.toNova()"
+    public writeNova(OutputStream writer = new StringBuilder()) => writer {
+        writer.write("catch #{soft ? "all" : ""}".trim())
+        writer.write(" (#writeException()) #scope.toNova()")
+    }
 }

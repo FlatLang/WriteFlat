@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/variables"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/InvalidParseException"
@@ -18,5 +19,5 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 class VariableDeclarationWriter extends IdentifierWriter {
-    public writeNova() => (type ? writeType() + " " : "") + name
+    public writeNova(OutputStream writer = new StringBuilder()) => writer.write((type ? writeType() + " " : "") + name)
 }

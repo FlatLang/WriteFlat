@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/Astro"
 import "novex/astro/InvalidParseException"
 import "novex/astro/SyntaxErrorException"
@@ -27,16 +28,20 @@ import "nova/datastruct/Bounds"
 /// version: v0.2.41 Dec 17, 2014 at 7:48:17 PM
 [AutoFinal]
 class NodeWriter implements AnnotatableWriter {
-    public writeAnnotationSeparator() => " "
+    public writeAnnotationSeparator(OutputStream writer = new StringBuilder()) => writer.write(" ")
     
-    public writeAnnotations() =>
+    public writeAnnotations(OutputStream writer = new StringBuilder()) =>
         annotations && annotations.count > 0 ?
-            annotations.filter({ !_.isModifier }).map({ _.toNova() + writeAnnotationSeparator() }).join() +
-                annotations.filter({ _.isModifier }).map({ _.toNova() + " " }).join() :
-            ""
+            writer.write(annotations.filter({ !_.isModifier }).map({ _.toNova() + writeAnnotationSeparator() }).join() +
+                annotations.filter({ _.isModifier }).map({ _.toNova() + " " }).join()) :
+            writer
     
-    public toNova() -> String => writeAnnotations() + writeNova()
+    public toNova(OutputStream writer = new StringBuilder()) => writer {
+        writeAnnotations(writer)
+        writeNova(writer)
+    }
     
-    public writeNova() => "{{#this.class}}"
-    public toString() => toNova()
+    public writeNova(OutputStream writer = new StringBuilder()) => writer.write("{{#this.class}}")
+    
+    public toString() => toNova().toString()
 }

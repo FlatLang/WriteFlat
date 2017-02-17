@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/InvalidParseException"
 import "novex/astro/tree/nodes/Node"
@@ -16,5 +17,5 @@ import "novex/astro/util/CompilerStringFunctions"
 /// version: 
 [AutoFinal]
 class EmptyArrayBracketWriter extends ValueWriter {
-    public writeNova() => ""
+    public writeNova(OutputStream writer = new StringBuilder()) => writer
 }

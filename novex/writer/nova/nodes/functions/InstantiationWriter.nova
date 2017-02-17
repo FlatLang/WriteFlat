@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/InvalidParseException"
 import "novex/astro/util/Location"
@@ -18,10 +19,10 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 class InstantiationWriter extends FunctionCallWriter {
-    public writeObjectNotation() =>
+    public writeObjectNotation(OutputStream writer = new StringBuilder()) =>
         objectNotation ?
-            " " + objectNotation.toNova() :
-            ""
+            writer.write(" " + objectNotation.toNova()) :
+            writer
     
-    public writeNova() => "new #super.writeNova()"
+    public writeNova(OutputStream writer = new StringBuilder()) => writer.write("new #super.writeNova()")
 }

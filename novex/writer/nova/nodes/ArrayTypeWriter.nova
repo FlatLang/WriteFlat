@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/InvalidParseException"
 import "novex/astro/util/Location"
 
@@ -8,8 +9,12 @@ import "novex/astro/util/CompilerStringFunctions"
 
 [AutoFinal]
 class ArrayTypeWriter extends TypeWriter {
-    public writeArray() =>
-        "[]".repeat(arrayDimensions)
+    public writeArray(OutputStream writer = new StringBuilder()) =>
+        writer.write("[]".repeat(arrayDimensions))
     
-    public writeNova() => "#type.name" + writeArray() + writeGenericArguments()
+    public writeNova(OutputStream writer = new StringBuilder()) => writer {
+        writer.write(type.name)
+        writeArray(writer)
+        writeGenericArguments(writer)
+    }
 }

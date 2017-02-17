@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/functions/closures"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/Type"
 import "novex/astro/tree/nodes/Value"
@@ -13,10 +14,13 @@ import "novex/astro/util/Location"
 import "novex/astro/util/CompilerStringFunctions"
 
 class ClosureDeclarationWriter extends ParameterWriter implements CallableFunctionWriter {
-    public writeType() =>
+    public writeType(OutputStream writer = new StringBuilder()) =>
         type ?
-            "-> #type.toNova()" :
-            ""
+            writer.write("-> #type.toNova()") :
+            writer
     
-    public writeNova() => ("#{name}#parameterList.toNova() " + writeType()).trim() + writeDefaultValue()
+    public writeNova(OutputStream writer = new StringBuilder()) => writer {
+        writer.write(("#{name}#parameterList.toNova() " + writeType()).trim())
+        writeDefaultValue(writer)
+    }
 }

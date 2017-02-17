@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/InvalidParseException"
 import "novex/astro/util/Location"
@@ -16,11 +17,11 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 class ObjectNotationWriter extends NodeListWriter {
-    public writeChildren() =>
+    public writeChildren(OutputStream writer = new StringBuilder()) =>
         children.count > 0 ?
-            "\n" + children.map({ _.toNova() + "\n" }).join() :
-            ""
+            writer.write("\n" + children.map({ _.toNova() + "\n" }).join()) :
+            writer
     
-    public writeNova() =>
-        "{" + writeChildren() + "}"
+    public writeNova(OutputStream writer = new StringBuilder()) =>
+        writer.write("{" + writeChildren() + "}")
 }

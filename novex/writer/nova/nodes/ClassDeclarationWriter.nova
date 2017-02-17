@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "nova/regex/Pattern"
 import "nova/datastruct/list/ImmutableArray"
 
@@ -26,33 +27,34 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 class ClassDeclarationWriter extends InstanceDeclarationWriter implements AbstractableWriter, GenericCompatibleWriter {
-    public writeHeader() =>
-        "#identifier #{name}#writeGenericParameters() #writeExtension() #writeImplementedInterfaces()".replace(/\s+/, " ").trim()
+    public writeHeader(OutputStream writer = new StringBuilder()) =>
+        writer.write("#identifier #{name}#writeGenericParameters() #writeExtension() #writeImplementedInterfaces()".replace(/\s+/, " ").trim())
     
-    public writeExtension() =>
+    public writeExtension(OutputStream writer = new StringBuilder()) =>
         extendedClass ?
-            "extends #extendedClass" :
-            ""
+            writer.write("extends #extendedClass") :
+            writer
     
-    public writeImplementedInterfaces() =>
+    public writeImplementedInterfaces(OutputStream writer = new StringBuilder()) =>
         implementedInterfaces.count > 0 ?
-            "implements #{implementedInterfaces.join(", ")}" :
-            ""
+            writer.write("implements #{implementedInterfaces.join(", ")}") :
+            writer
     
-    public writeArrayBracketOverload() =>
+    public writeArrayBracketOverload(OutputStream writer = new StringBuilder()) =>
         arrayBracketOverload ?
-            "\n" + arrayBracketOverload.toNova() + "\n" :
-            ""
+            writer.write("\n" + arrayBracketOverload.toNova() + "\n") :
+            writer
     
-    public writeFields() => fields.map({ '\n' + _.toNova() }).join() + (fields.count > 0 ? "\n" : "")
-    public writeFunctions() => functions.map({ '\n' + _.toNova() + '\n' }).join()
+    public writeFields(OutputStream writer = new StringBuilder()) => writer.write(fields.map({ '\n' + _.toNova() }).join() + (fields.count > 0 ? "\n" : ""))
+    public writeFunctions(OutputStream writer = new StringBuilder()) => writer.write(functions.map({ '\n' + _.toNova() + '\n' }).join())
     
-    public toNova() =>
-        writeHeader() + " {" +
-        writeArrayBracketOverload() +
-        writeFields() +
-        writeFunctions() + "}"
+    public toNova(OutputStream writer = new StringBuilder()) => writer {
+        writeHeader(writer).write(" {")
+        writeArrayBracketOverload(writer)
+        writeFields(writer)
+        writeFunctions(writer).write("}")
+    }
     
     [Override]
-    public toString() => writeHeader()
+    public toString() => writeHeader().toString()
 }

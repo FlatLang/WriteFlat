@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/operations"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "nova/datastruct/HashMap"
 
 import "novex/astro/SyntaxErrorException"
@@ -13,8 +14,8 @@ import "novex/astro/util/Location"
 import "novex/astro/util/CompilerStringFunctions"
 
 class UnaryOperationWriter extends ValueWriter {
-    public writeNova() =>
+    public writeNova(OutputStream writer = new StringBuilder()) =>
         operatorSide == LEFT ?
-            "#{operator.toNova()}#{operand.toNova()}" :
-            "#{operand.toNova()}#{operator.toNova()}"
+            writer.write("#{operator.toNova()}#{operand.toNova()}") :
+            writer.write("#{operand.toNova()}#{operator.toNova()}")
 }

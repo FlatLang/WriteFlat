@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/SyntaxMessage"
 import "novex/astro/InvalidParseException"
 import "novex/astro/tree/SyntaxTree"
@@ -16,15 +17,16 @@ import "novex/astro/util/CompilerStringFunctions"
 
 class FunctionDeclarationWriter extends InstanceDeclarationWriter implements CallableFunctionWriter, GenericCompatibleWriter {
     [Override]
-    public writeAnnotationSeparator() => "\n"
+    public writeAnnotationSeparator(OutputStream writer = new StringBuilder()) => writer.write("\n")
     
-    public writeReturnType() => type ? " -> #type" : ""
+    public writeReturnType(OutputStream writer = new StringBuilder()) => type ? writer.write(" -> #type") : writer
     
-    public writeHeader() =>
-        "#name".replace(/\s+/, " ").trim() +
-        writeGenericParameters() +
-        "#parameterList.toNova()" +
-        writeReturnType()
+    public writeHeader(OutputStream writer = new StringBuilder()) => writer {
+        writer.write("#name".replace(/\s+/, " ").trim())
+        writeGenericParameters(writer)
+        parameterList.toNova(writer)
+        writeReturnType(writer)
+    }
     
-    public writeNova() => writeHeader()
+    public writeNova(OutputStream writer = new StringBuilder()) => writeHeader(writer)
 }

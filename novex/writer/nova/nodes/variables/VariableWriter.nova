@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/variables"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/InvalidParseException"
 import "novex/astro/util/Location"
 import "novex/astro/tree/nodes/Node"
@@ -13,5 +14,9 @@ import "novex/astro/tree/nodes/operations/Assignable"
 import "novex/astro/util/CompilerStringFunctions"
 
 class VariableWriter extends IdentifierWriter implements AccessibleWriter, AssignableWriter {
-    public writeNova() => declaration.name + writeArrayAccess() + writeAccessedNodes()
+    public writeNova(OutputStream writer = new StringBuilder()) => writer {
+        writer.write(declaration.name)
+        writeArrayAccess(writer)
+        writeAccessedNodes(writer)
+    }
 }

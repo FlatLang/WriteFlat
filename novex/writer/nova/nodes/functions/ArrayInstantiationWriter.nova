@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/InvalidParseException"
 import "novex/astro/util/Location"
@@ -18,7 +19,10 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 class ArrayInstantiationWriter extends InstantiationWriter {
-    public writeDimensions() => dimensions.map({ "[#{_.toNova()}]" }).join()
+    public writeDimensions(OutputStream writer = new StringBuilder()) => writer.write(dimensions.map({ "[#{_.toNova()}]" }).join())
     
-    public writeNova() => "new #arrayType.type.name" + writeDimensions()
+    public writeNova(OutputStream writer = new StringBuilder()) => writer {
+        writer.write("new #arrayType.type.name")
+        writeDimensions(writer)
+    }
 }

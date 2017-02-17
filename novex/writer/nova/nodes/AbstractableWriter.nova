@@ -1,6 +1,8 @@
 package "novex/writer/nova/nodes"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
+
 trait AbstractableWriter {
-    public writeAbstract() => isAbstract ? "abstract " : ""
+    public writeAbstract(OutputStream writer = new StringBuilder()) => isAbstract ? writer.write("abstract ") : writer
 }

@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "nova/regex/Pattern"
 
 import "novex/astro/SyntaxErrorException"
@@ -16,12 +17,16 @@ import "novex/astro/util/CompilerStringFunctions"
 /// version: 
 [AutoFinal]
 class ExternalBlockWriter extends NodeWriter implements ScopeDeclarationWriter {
-    public writeTargets() =>
+    public writeTargets(OutputStream writer = new StringBuilder()) =>
         targets.count > 0 ?
-            targets.map({ " #_" }).join(",") :
-            ""
+            writer.write(targets.map({ " #_" }).join(",")) :
+            writer
     
-    public writeContents() => " {\n#contents\n}"
+    public writeContents(OutputStream writer = new StringBuilder()) => writer.write(" {\n#contents\n}")
     
-    public writeNova() => "external" + writeTargets() + writeContents()
+    public writeNova(OutputStream writer = new StringBuilder()) => writer {
+        writer.write("external")
+        writeTargets(writer)
+        writeContents(writer)
+    }
 }

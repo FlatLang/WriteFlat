@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/util/Location"
 
@@ -12,5 +13,9 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 class LiteralWriter extends ValueWriter implements AccessibleWriter {
-    public writeNova() => value + writeArrayAccess() + writeAccessedNodes()
+    public writeNova(OutputStream writer = new StringBuilder()) => writer {
+        writer.write(value)
+        writeArrayAccess(writer)
+        writeAccessedNodes(writer)
+    }
 }

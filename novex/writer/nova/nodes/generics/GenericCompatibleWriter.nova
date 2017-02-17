@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/generics"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/InvalidParseException"
 import "novex/astro/util/Location"
 import "novex/astro/tree/nodes/Node"
@@ -10,8 +11,8 @@ import "novex/astro/tree/nodes/Type"
 import "novex/astro/util/CompilerStringFunctions"
 
 trait GenericCompatibleWriter extends NodeWriter {
-    public writeGenericParameters() =>
+    public writeGenericParameters(OutputStream writer = new StringBuilder()) =>
         genericParameters.count > 0 ?
-            "<" + genericParameters.map({ _.toNova() }).join(", ") + ">" :
-            ""
+            writer.write("<" + genericParameters.map({ _.toNova() }).join(", ") + ">") :
+            writer
 }

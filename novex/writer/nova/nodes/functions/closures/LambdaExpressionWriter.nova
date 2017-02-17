@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/functions/closures"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "nova/datastruct/list/Stack"
 
 import "novex/astro/SyntaxErrorException"
@@ -26,19 +27,21 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 class LambdaExpressionWriter extends ValueWriter implements CallableFunctionWriter, ScopeDeclarationWriter {
-    public writeParameters() => "" {
+    public writeParameters(OutputStream writer = new StringBuilder()) => writer {
         if (parameters.count == 1) {
-            return parameters[0].toNova()
+            return parameters[0].toNova(writer)
         } else if (parameters.count > 1) {
-            return "(" + parameters.map({ _.toNova() }).join(", ") + ")"
+            return writer.write("(" + parameters.map({ _.toNova() }).join(", ") + ")")
         }
     }
     
-    writeParameterClause() =>
+    writeParameterClause(OutputStream writer = new StringBuilder()) =>
         parameters.count > 0 ?
-            writeParameters() + " => " :
-            ""
+            writeParameters(writer).write(" => ") :
+            writer
     
-    public writeNova() =>
-        writeParameterClause() + scope.writeNova(true)
+    public writeNova(OutputStream writer = new StringBuilder()) => writer {
+        writeParameterClause(writer)
+        scope.writeNova(writer, true)
+    }
 }

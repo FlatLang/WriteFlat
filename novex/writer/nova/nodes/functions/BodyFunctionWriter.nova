@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/InvalidParseException"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/ScopeDeclaration"
@@ -14,22 +15,24 @@ import "novex/astro/SyntaxMessage"
 import "novex/astro/util/CompilerStringFunctions"
 
 class BodyFunctionWriter extends FunctionDeclarationWriter implements ScopeDeclarationWriter {
-    public writeReturnType() =>
+    public writeReturnType(OutputStream writer = new StringBuilder()) =>
         implicitType ?
-            "" :
-            super.writeReturnType()
+            writer :
+            super.writeReturnType(writer)
     
-    writeInlineBody() =>
-        "=> " + inlineBody.toNova() +
+    writeInlineBody(OutputStream writer = new StringBuilder()) =>
+        writer.write("=> " + inlineBody.toNova() +
             (scope.children.count > 0 ?
                 " " + scope.toNova() :
-                "")
+                ""))
     
-    public writeBody() =>
-        " " + (inlineBody ?
+    public writeBody(OutputStream writer = new StringBuilder()) =>
+        writer.write(" " + (inlineBody ?
             writeInlineBody() :
-            scope.toNova())
+            scope.toNova()))
     
-    public writeNova() =>
-        writeHeader() + writeBody()
+    public writeNova(OutputStream writer = new StringBuilder()) => writer {
+        writeHeader(writer)
+        writeBody(writer)
+    }
 }

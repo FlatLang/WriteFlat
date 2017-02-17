@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "nova/datastruct/Pair"
 import "nova/datastruct/list/List"
 
@@ -12,6 +13,6 @@ import "novex/astro/tree/nodes/functions/FunctionCall"
 import "novex/astro/util/CompilerStringFunctions"
 
 trait AccessibleWriter extends ValueWriter {
-    public writeAccessedNodes() -> String =>
-        doesAccess ? ".#accessedNode.toNova()" : ""
+    public writeAccessedNodes(OutputStream writer = new StringBuilder()) -> String =>
+        doesAccess ? writer.write(".#accessedNode.toNova()") : writer
 }

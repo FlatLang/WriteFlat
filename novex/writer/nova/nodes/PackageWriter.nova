@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "nova/datastruct/HashMap"
 
 import "novex/astro/util/Location"
@@ -9,5 +10,5 @@ import "novex/astro/SyntaxMessage"
 import "novex/astro/util/CompilerStringFunctions"
 
 class PackageWriter extends NodeWriter {
-    public writeNova() => location ? "package \"#location\"" : ""
+    public writeNova(OutputStream writer = new StringBuilder()) => writer.write(location ? "package \"#location\"" : "")
 }

@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/operations"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/InvalidParseException"
 import "novex/astro/tree/nodes/Node"
@@ -16,6 +17,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 class ElvisOperationWriter extends ValueWriter {
-    public writeNova() =>
-        "#condition ?: #otherwise"
+    public writeNova(OutputStream writer = new StringBuilder()) =>
+        writer.write("#condition ?: #otherwise")
 }

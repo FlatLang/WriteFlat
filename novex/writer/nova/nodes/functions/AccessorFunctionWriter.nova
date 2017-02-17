@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/InvalidParseException"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/Scope"
@@ -10,5 +11,5 @@ import "novex/astro/SyntaxMessage"
 import "novex/astro/util/CompilerStringFunctions"
 
 class AccessorFunctionWriter extends PropertyFunctionWriter {
-    public writeHeader() => (disabled ? "no " : "") + "get"
+    public writeHeader(OutputStream writer = new StringBuilder()) => writer.write(disabled ? "no " : "").write("get")
 }

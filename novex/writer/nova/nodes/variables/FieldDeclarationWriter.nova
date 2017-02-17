@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/variables"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/Value"
 import "novex/astro/tree/nodes/functions/BodyFunction"
@@ -15,26 +16,31 @@ import "novex/astro/util/Location"
 import "novex/astro/util/CompilerStringFunctions"
 
 class FieldDeclarationWriter extends InstanceDeclarationWriter implements AssignableWriter {
-    public writeInitializationValue() => initializationValue ? " = #initializationValue.toNova()" : ""
-    public writeAccessorValue() =>
+    public writeInitializationValue(OutputStream writer = new StringBuilder()) => initializationValue ? writer.write(" = #initializationValue.toNova()") : writer
+    public writeAccessorValue(OutputStream writer = new StringBuilder()) =>
         accessorValue ?
-            (isTwoWayAccessor ? " <=> " : " => ") + accessorValue.toNova() :
-            ""
+            writer.write((isTwoWayAccessor ? " <=> " : " => ") + accessorValue.toNova()) :
+            writer
     
-    public writePropertyFunctions() => "" {
+    public writePropertyFunctions(OutputStream writer = new StringBuilder()) => writer {
         if (accessor || mutator) {
-            var output = " {"
+            writer.write(" {")
             
             if (accessor) {
-                output += "\n" + accessor.writeNova() + "\n"
+                writer.write("\n" + accessor.writeNova() + "\n")
             }
             if (mutator) {
-                output += "\n" + mutator.writeNova() + "\n"
+                writer.write("\n" + mutator.writeNova() + "\n")
             }
             
-            return output + "}"
+            writer.write("}")
         }
     }
     
-    public writeNova() => super.writeNova() + writeInitializationValue() + writeAccessorValue() + writePropertyFunctions()
+    public writeNova(OutputStream writer = new StringBuilder()) => writer {
+        super.writeNova(writer)
+        writeInitializationValue(writer)
+        writeAccessorValue(writer)
+        writePropertyFunctions(writer)
+    }
 }

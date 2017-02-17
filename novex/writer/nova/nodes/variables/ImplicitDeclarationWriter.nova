@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/variables"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/Value"
 import "novex/astro/tree/nodes/Type"
@@ -13,6 +14,6 @@ import "novex/astro/util/Location"
 import "novex/astro/util/CompilerStringFunctions"
 
 class ImplicitDeclarationWriter extends LocalDeclarationWriter {
-    public writeType() => ""
-    public writeNova() => name
+    public writeType(OutputStream writer = new StringBuilder()) => writer
+    public writeNova(OutputStream writer = new StringBuilder()) => writer.write(name)
 }

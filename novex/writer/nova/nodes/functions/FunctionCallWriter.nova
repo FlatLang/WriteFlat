@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/Value"
 import "novex/astro/tree/nodes/variables/Variable"
@@ -21,8 +22,14 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 class FunctionCallWriter extends VariableWriter {
-    public writeName() => name
+    public writeName(OutputStream writer = new StringBuilder()) => writer.write(name)
     
-    public writeNova() => writeName() + "#argumentList" + writeArrayAccess() + writeAccessedNodes()
-    public toString() => toNova()
+    public writeNova(OutputStream writer = new StringBuilder()) => writer {
+        writeName(writer)
+        writer.write("#argumentList")
+        writeArrayAccess(writer)
+        writeAccessedNodes(writer)
+    }
+    
+    public toString(OutputStream writer = new StringBuilder()) => toNova(writer)
 }

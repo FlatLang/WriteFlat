@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/controlstructures"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/Scope"
 import "novex/astro/tree/nodes/Value"
@@ -16,6 +17,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 class IfStatementWriter extends ControlStructureWriter {
-    public writeNova() =>
-        "if (#condition.toNova()) #scope.toNova()"
+    public writeNova(OutputStream writer = new StringBuilder()) =>
+        writer.write("if (#condition.toNova()) #scope.toNova()")
 }

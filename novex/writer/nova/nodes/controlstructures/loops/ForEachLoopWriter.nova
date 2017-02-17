@@ -1,6 +1,7 @@
 package "novex/writer/nova/nodes/controlstructures/loops"
 
 import "nova/io/OutputStream"
+import "nova/io/StringBuilder"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/InvalidParseException"
 import "novex/astro/util/Location"
@@ -20,5 +21,5 @@ import "novex/astro/util/CompilerStringFunctions"
 /// version: 
 class ForEachLoopWriter extends LoopWriter {
     public writeNova() =>
-        "for (#variable.name in #iterator.toNova()) #scope.toNova()"
+        writer.write("for (#variable.name in #iterator.toNova()) #scope.toNova()")
 }
