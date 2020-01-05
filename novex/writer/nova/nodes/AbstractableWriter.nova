@@ -3,6 +3,8 @@ package "novex/writer/nova/nodes"
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
 
+import "novex/astro/tree/nodes/Abstractable"
+
 trait AbstractableWriter {
-    public writeAbstract(OutputStream writer = new StringBuilder()) => isAbstract ? writer.write("abstract ") : writer
+    public static writeAbstract(Abstractable node, OutputStream writer = new StringBuilder()) => node.isAbstract ? writer.write("abstract ") : writer
 }

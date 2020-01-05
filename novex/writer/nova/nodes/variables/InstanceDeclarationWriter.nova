@@ -13,6 +13,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class InstanceDeclarationWriter extends VariableDeclarationWriter {
+class InstanceDeclarationWriter {
     
 }

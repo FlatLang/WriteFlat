@@ -15,7 +15,7 @@ import "novex/astro/util/Location"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class FieldDeclarationWriter extends InstanceDeclarationWriter implements AssignableWriter {
+class FieldDeclarationWriter {
     public writeInitializationValue(OutputStream writer = new StringBuilder()) => initializationValue ? writer.write(" = #initializationValue.toNova()") : writer
     public writeAccessorValue(OutputStream writer = new StringBuilder()) =>
         accessorValue ?

@@ -5,6 +5,6 @@ import "nova/io/StringBuilder"
 import "novex/astro/tree/nodes/Node"
 import "novex/astro/util/Location"
 
-class OperatorWriter extends NodeWriter {
+class OperatorWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write(value)
 }

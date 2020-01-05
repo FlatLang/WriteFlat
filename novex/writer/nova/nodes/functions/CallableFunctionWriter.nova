@@ -15,6 +15,6 @@ import "novex/astro/SyntaxMessage"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-trait CallableFunctionWriter extends IdentifierWriter implements GenericCompatibleWriter {
+trait CallableFunctionWriter {
     
 }

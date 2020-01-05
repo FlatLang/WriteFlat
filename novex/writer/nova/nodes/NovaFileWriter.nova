@@ -13,7 +13,7 @@ import "novex/astro/tree/nodes/annotations/Annotation"
 import "novex/astro/tree/nodes/functions/closures/ClosureContext"
 import "novex/astro/tree/nodes/functions/closures/ClosureDeclaration"
 
-class NovaFileWriter extends NodeWriter {
+class NovaFileWriter {
     public writePackageDeclaration(OutputStream writer = new StringBuilder()) =>
         packageDeclaration ?
             writer.write(packageDeclaration.toNova() + "\n\n") :

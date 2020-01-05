@@ -14,6 +14,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 [AutoFinal]
-class TraitDeclarationWriter extends ClassDeclarationWriter {
+class TraitDeclarationWriter {
     
 }

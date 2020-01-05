@@ -16,7 +16,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ElvisOperationWriter extends ValueWriter {
+class ElvisOperationWriter {
     public writeNova(OutputStream writer = new StringBuilder()) =>
         writer.write("#condition ?: #otherwise")
 }

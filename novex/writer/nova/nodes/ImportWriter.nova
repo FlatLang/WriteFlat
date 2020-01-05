@@ -8,6 +8,6 @@ import "novex/astro/util/Location"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class ImportWriter extends NodeWriter {
+class ImportWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write("import \"#importLocation\"")
 }

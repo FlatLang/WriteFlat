@@ -14,7 +14,7 @@ import "novex/astro/SyntaxMessage"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class BodyFunctionWriter extends FunctionDeclarationWriter implements ScopeDeclarationWriter {
+class BodyFunctionWriter {
     public writeReturnType(OutputStream writer = new StringBuilder()) =>
         implicitType ?
             writer :

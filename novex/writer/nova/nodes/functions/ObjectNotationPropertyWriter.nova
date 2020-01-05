@@ -20,6 +20,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ObjectNotationPropertyWriter extends AssignmentWriter {
+class ObjectNotationPropertyWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write("#assigned.toNova(): #assignment.toNova()")
 }

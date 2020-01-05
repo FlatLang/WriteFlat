@@ -9,7 +9,6 @@ import "novex/astro/util/Location"
 import "novex/astro/tree/nodes/Type"
 import "novex/astro/tree/nodes/Identifier"
 import "novex/astro/tree/nodes/annotations/Modifier"
-import "novex/astro/tree/nodes/annotations/Modifier.ModifierFunctionMap"
 
 import "novex/astro/util/CompilerStringFunctions"
 
@@ -18,6 +17,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class VariableDeclarationWriter extends IdentifierWriter {
+class VariableDeclarationWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write((type ? writeType() + " " : "") + name)
 }

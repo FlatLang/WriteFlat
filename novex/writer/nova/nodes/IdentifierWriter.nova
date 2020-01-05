@@ -13,7 +13,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class IdentifierWriter extends ValueWriter implements AccessibleWriter, AssignableWriter {
+class IdentifierWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer {
         writer.write(name)
         writeArrayAccess(writer)

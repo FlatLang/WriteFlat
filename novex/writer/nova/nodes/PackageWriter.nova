@@ -9,6 +9,6 @@ import "novex/astro/SyntaxMessage"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class PackageWriter extends NodeWriter {
+class PackageWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write(location ? "package \"#location\"" : "")
 }

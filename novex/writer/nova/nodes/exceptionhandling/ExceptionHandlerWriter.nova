@@ -12,6 +12,6 @@ import "novex/astro/util/Location"
 /// @author    Braden Steffaniak
 /// @since    v0.1 Mar 21, 2014 at 10:50:26 PM
 /// @version    v0.2.26 Aug 6, 2014 at 2:48:50 PM
-class ExceptionHandlerWriter extends NodeWriter {
+class ExceptionHandlerWriter {
     
 }

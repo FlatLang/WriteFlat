@@ -4,12 +4,13 @@ import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/util/Location"
+import "novex/astro/tree/nodes/ArgumentList"
 
 /// @NodeList extension that represents 
 ///
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ArgumentListWriter extends NodeListWriter<Value> {
-    public toString(OutputStream writer = new StringBuilder()) => writer.write("(#{arguments.join(", ")})")
+class ArgumentListWriter {
+    public static toString(ArgumentList node, OutputStream writer = new StringBuilder()) => writer.write("(#{node.arguments.join(", ")})")
 }

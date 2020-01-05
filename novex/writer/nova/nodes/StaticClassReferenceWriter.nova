@@ -12,6 +12,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class StaticClassReferenceWriter extends IdentifierWriter implements AccessibleWriter {
+class StaticClassReferenceWriter {
     
 }

@@ -7,6 +7,6 @@ import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/Scope"
 import "novex/astro/tree/nodes/ScopeDeclaration"
 
-class ControlStructureWriter extends NodeWriter implements ScopeDeclarationWriter {
+class ControlStructureWriter {
     
 }

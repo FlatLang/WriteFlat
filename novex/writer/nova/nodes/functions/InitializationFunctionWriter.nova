@@ -12,6 +12,6 @@ import "novex/astro/SyntaxMessage"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class InitializationFunctionWriter extends BodyFunctionWriter {
+class InitializationFunctionWriter {
     
 }

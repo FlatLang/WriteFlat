@@ -15,7 +15,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ElseStatementWriter extends ControlStructureWriter {
+class ElseStatementWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => {
         writer.write("else ")
         writer.write(inlineIf ? inlineIf.toNova() : scope.toNova())

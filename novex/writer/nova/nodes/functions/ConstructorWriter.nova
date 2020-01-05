@@ -12,6 +12,6 @@ import "novex/astro/SyntaxMessage"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class ConstructorWriter extends BodyFunctionWriter {
+class ConstructorWriter {
     public writeReturnType(OutputStream writer = new StringBuilder()) => writer
 }

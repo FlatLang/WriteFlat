@@ -4,16 +4,17 @@ import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
 import "novex/astro/InvalidParseException"
 import "novex/astro/util/Location"
+import "novex/astro/tree/nodes/ArrayType"
 
 import "novex/astro/util/CompilerStringFunctions"
 
 [AutoFinal]
-class ArrayTypeWriter extends TypeWriter {
-    public writeArray(OutputStream writer = new StringBuilder()) =>
-        writer.write("[]".repeat(arrayDimensions))
+class ArrayTypeWriter {
+    public static writeArray(ArrayType node, OutputStream writer = new StringBuilder()) =>
+        writer.write("[]".repeat(node.arrayDimensions))
     
-    public writeNova(OutputStream writer = new StringBuilder()) => writer {
-        writer.write(type.name)
+    public static writeNova(ArrayType node, OutputStream writer = new StringBuilder()) => writer {
+        writer.write(node.type.name)
         writeArray(writer)
         writeGenericArguments(writer)
     }

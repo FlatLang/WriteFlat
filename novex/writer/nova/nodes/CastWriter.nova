@@ -5,6 +5,7 @@ import "nova/io/StringBuilder"
 import "novex/astro/SyntaxErrorException"
 import "novex/astro/InvalidParseException"
 import "novex/astro/util/Location"
+import "novex/astro/tree/nodes/Cast"
 
 import "novex/astro/util/CompilerStringFunctions"
 
@@ -14,6 +15,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 [AutoFinal]
-class CastWriter extends ValueWriter {
-    public writeNova(OutputStream writer = new StringBuilder()) => writer.write("(#{writeType()})#value.toNova()")
+class CastWriter {
+    public writeNova(Cast node, OutputStream writer = new StringBuilder()) => writer.write("(#{ValueWriter.writeType(node)})#value.toNova()")
 }

@@ -6,6 +6,6 @@ import "novex/astro/Astro"
 import "novex/astro/tree/SyntaxTree"
 import "novex/astro/SyntaxMessage"
 
-class ProgramWriter extends NodeListWriter<NovaFile> {
+class ProgramWriter {
     public toString() => "Program"
 }

@@ -21,7 +21,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class FunctionCallWriter extends VariableWriter {
+class FunctionCallWriter {
     public writeName(OutputStream writer = new StringBuilder()) => writer.write(name)
     
     public writeNova(OutputStream writer = new StringBuilder()) => writer {

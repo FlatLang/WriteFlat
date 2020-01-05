@@ -7,6 +7,6 @@ import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/Value"
 import "novex/astro/tree/nodes/Type"
 
-class GenericArgumentWriter extends ValueWriter {
+class GenericArgumentWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write(type.name)
 }

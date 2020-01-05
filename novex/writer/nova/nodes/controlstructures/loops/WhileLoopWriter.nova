@@ -17,7 +17,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class WhileLoopWriter extends LoopWriter {
+class WhileLoopWriter {
     public writeNova(OutputStream writer = new StringBuilder()) =>
         writer.write("while (#condition.toNova()) #scope.toNova()")
 }

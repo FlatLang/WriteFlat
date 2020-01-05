@@ -8,6 +8,6 @@ import "novex/astro/tree/nodes/Value"
 import "novex/astro/tree/nodes/Type"
 
 [AutoFinal]
-class GenericTypeWriter extends TypeWriter {
+class GenericTypeWriter {
     
 }

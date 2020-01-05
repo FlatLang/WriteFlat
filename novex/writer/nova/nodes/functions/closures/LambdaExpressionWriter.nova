@@ -26,7 +26,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class LambdaExpressionWriter extends ValueWriter implements CallableFunctionWriter, ScopeDeclarationWriter {
+class LambdaExpressionWriter {
     public writeParameters(OutputStream writer = new StringBuilder()) => writer {
         if (parameters.count == 1) {
             return parameters[0].toNova(writer)

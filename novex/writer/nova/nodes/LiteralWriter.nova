@@ -12,7 +12,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class LiteralWriter extends ValueWriter implements AccessibleWriter {
+class LiteralWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer {
         writer.write(value)
         writeArrayAccess(writer)

@@ -10,7 +10,7 @@ import "novex/astro/tree/nodes/Type"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-trait GenericCompatibleWriter extends NodeWriter {
+trait GenericCompatibleWriter {
     public writeGenericParameters(OutputStream writer = new StringBuilder()) =>
         genericParameters.count > 0 ?
             writer.write("<" + genericParameters.map({ _.toNova() }).join(", ") + ">") :

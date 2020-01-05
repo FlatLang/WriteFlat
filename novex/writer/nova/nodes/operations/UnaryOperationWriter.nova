@@ -13,7 +13,7 @@ import "novex/astro/util/Location"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class UnaryOperationWriter extends ValueWriter {
+class UnaryOperationWriter {
     public writeNova(OutputStream writer = new StringBuilder()) =>
         operatorSide == LEFT ?
             writer.write("#{operator.toNova()}#{operand.toNova()}") :

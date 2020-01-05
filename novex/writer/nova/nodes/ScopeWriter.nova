@@ -38,7 +38,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author:  Braden Steffaniak
 /// since:   v0.1 Apr 5, 2014 at 10:54:20 PM
 /// version: v0.2.41 Dec 17, 2014 at 7:48:17 PM
-class ScopeWriter extends NodeListWriter {
+class ScopeWriter {
     printPrecedingWhitespace(OutputStream writer = new StringBuilder(), Node child) =>
         writer.write(LADDER_FORM.contains(child.class) ? " " : "\n")
     

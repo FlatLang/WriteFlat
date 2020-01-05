@@ -16,7 +16,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ObjectNotationWriter extends NodeListWriter {
+class ObjectNotationWriter {
     public writeChildren(OutputStream writer = new StringBuilder()) =>
         children.count > 0 ?
             writer.write("\n" + children.map({ _.toNova() + "\n" }).join()) :

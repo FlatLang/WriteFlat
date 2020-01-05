@@ -14,6 +14,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class NumericRangeWriter extends InstantiationWriter {
+class NumericRangeWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write("#{start?.toNova()}..#{end?.toNova()}")
 }

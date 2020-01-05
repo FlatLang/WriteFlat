@@ -16,6 +16,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 [AutoFinal]
-class EmptyArrayBracketWriter extends ValueWriter {
+class EmptyArrayBracketWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer
 }

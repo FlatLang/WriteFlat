@@ -5,6 +5,6 @@ import "nova/io/StringBuilder"
 import "novex/astro/util/Location"
 import "novex/astro/tree/nodes/Node"
 
-class ClosureContextWriter extends NodeWriter {
+class ClosureContextWriter {
     
 }

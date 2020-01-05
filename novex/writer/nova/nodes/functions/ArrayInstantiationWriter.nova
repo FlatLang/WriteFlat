@@ -18,7 +18,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ArrayInstantiationWriter extends InstantiationWriter {
+class ArrayInstantiationWriter {
     public writeDimensions(OutputStream writer = new StringBuilder()) => writer.write(dimensions.map({ "[#{_.toNova()}]" }).join())
     
     public writeNova(OutputStream writer = new StringBuilder()) => writer {

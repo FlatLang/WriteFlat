@@ -15,8 +15,7 @@ import "novex/astro/util/Location"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class FunctionDeclarationWriter extends InstanceDeclarationWriter implements CallableFunctionWriter, GenericCompatibleWriter {
-    [Override]
+class FunctionDeclarationWriter {
     public writeAnnotationSeparator(OutputStream writer = new StringBuilder()) => writer.write("\n")
     
     public writeReturnType(OutputStream writer = new StringBuilder()) => type ? writer.write(" -> #type") : writer

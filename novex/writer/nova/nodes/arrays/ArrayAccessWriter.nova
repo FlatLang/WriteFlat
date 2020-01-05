@@ -15,6 +15,6 @@ import "novex/astro/util/Location"
 /// author:  Braden Steffaniak
 /// since:   v0.2 Mar 24, 2014 at 10:45:29 PM
 /// version: v0.2.45 Oct 20, 2016 at 10:19:22 PM
-class ArrayAccessWriter extends NodeWriter {
+class ArrayAccessWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write(dimensions.map({ "[#{_.toNova()}]" }).join())
 }

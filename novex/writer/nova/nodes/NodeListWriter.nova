@@ -4,6 +4,6 @@ import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
 import "novex/astro/util/Location"
 
-class NodeListWriter<E extends Node> extends NodeWriter {
+class NodeListWriter<E {
     
 }

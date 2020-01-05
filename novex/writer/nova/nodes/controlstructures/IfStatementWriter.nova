@@ -16,7 +16,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class IfStatementWriter extends ControlStructureWriter {
+class IfStatementWriter {
     public writeNova(OutputStream writer = new StringBuilder()) =>
         writer.write("if (#condition.toNova()) #scope.toNova()")
 }

@@ -14,6 +14,6 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 [AutoFinal]
-class NovaDocCommentWriter extends CommentWriter {
+class NovaDocCommentWriter {
     
 }

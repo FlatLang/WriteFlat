@@ -11,7 +11,7 @@ import "novex/astro/util/Location"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class ParameterWriter extends LocalDeclarationWriter {
+class ParameterWriter {
     public writeDefaultValue(OutputStream writer = new StringBuilder()) =>
         defaultValue ?
             writer.write(" = " + defaultValue.toNova()) :

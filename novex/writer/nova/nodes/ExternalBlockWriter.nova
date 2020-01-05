@@ -16,7 +16,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// since: 
 /// version: 
 [AutoFinal]
-class ExternalBlockWriter extends NodeWriter implements ScopeDeclarationWriter {
+class ExternalBlockWriter {
     public writeTargets(OutputStream writer = new StringBuilder()) =>
         targets.count > 0 ?
             writer.write(targets.map({ " #_" }).join(",")) :

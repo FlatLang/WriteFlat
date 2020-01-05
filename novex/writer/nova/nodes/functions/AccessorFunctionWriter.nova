@@ -10,6 +10,6 @@ import "novex/astro/SyntaxMessage"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class AccessorFunctionWriter extends PropertyFunctionWriter {
+class AccessorFunctionWriter {
     public writeHeader(OutputStream writer = new StringBuilder()) => writer.write(disabled ? "no " : "").write("get")
 }

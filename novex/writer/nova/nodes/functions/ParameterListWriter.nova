@@ -6,6 +6,6 @@ import "novex/astro/tree/nodes/Node"
 import "novex/astro/tree/nodes/NodeList"
 import "novex/astro/util/Location"
 
-class ParameterListWriter extends NodeListWriter<Parameter> {
+class ParameterListWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write("(#{parameters.join(", ")})")
 }

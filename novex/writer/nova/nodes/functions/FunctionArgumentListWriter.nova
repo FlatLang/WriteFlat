@@ -12,6 +12,6 @@ import "novex/astro/util/Location"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class FunctionArgumentListWriter extends ArgumentListWriter {
+class FunctionArgumentListWriter {
     
 }

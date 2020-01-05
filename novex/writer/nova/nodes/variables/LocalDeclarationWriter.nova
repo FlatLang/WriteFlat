@@ -10,6 +10,6 @@ import "novex/astro/util/Location"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class LocalDeclarationWriter extends VariableDeclarationWriter implements AssignableWriter {
+class LocalDeclarationWriter {
     
 }

@@ -9,6 +9,6 @@ import "novex/astro/SyntaxMessage"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class PropertyFunctionWriter extends BodyFunctionWriter {
+class PropertyFunctionWriter {
     public writeBody(OutputStream writer = new StringBuilder()) => disabled ? writer : super.writeBody(writer)
 }

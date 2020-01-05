@@ -9,10 +9,11 @@ import "novex/astro/SyntaxMessage"
 import "novex/astro/InvalidParseException"
 import "novex/astro/util/SyntaxUtils"
 import "novex/astro/tree/nodes/functions/FunctionCall"
+import "novex/astro/tree/nodes/Accessible"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-trait AccessibleWriter extends ValueWriter {
-    public writeAccessedNodes(OutputStream writer = new StringBuilder()) -> String =>
-        doesAccess ? writer.write(".#accessedNode.toNova()") : writer
+trait AccessibleWriter {
+    public static writeAccessedNodes(Accessible node, OutputStream writer = new StringBuilder()) -> String =>
+        node.doesAccess ? writer.write(".#node.accessedNode.toNova()") : writer
 }

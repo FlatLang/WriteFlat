@@ -15,7 +15,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ThrowWriter extends ExceptionHandlerWriter {
+class ThrowWriter {
     public writeNova(OutputStream writer = new StringBuilder()) =>
         writer.write("#{soft ? "softly" : ""} throw #exception.toNova()".trim())
 }

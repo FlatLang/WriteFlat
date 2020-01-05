@@ -20,7 +20,7 @@ import "novex/astro/tree/nodes/functions/Instantiation"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class ValueWriter extends NodeWriter {
-    public writeType(OutputStream writer = new StringBuilder()) => type.toNova(writer)
-    public writeArrayAccess(OutputStream writer = new StringBuilder()) => arrayAccess ? arrayAccess.toNova(writer) : writer
+class ValueWriter {
+    public static writeType(OutputStream writer = new StringBuilder()) => type.toNova(writer)
+    public static writeArrayAccess(OutputStream writer = new StringBuilder()) => arrayAccess ? arrayAccess.toNova(writer) : writer
 }

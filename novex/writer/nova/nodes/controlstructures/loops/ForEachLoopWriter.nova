@@ -19,7 +19,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ForEachLoopWriter extends LoopWriter {
+class ForEachLoopWriter {
     public writeNova() =>
         writer.write("for (#variable.name in #iterator.toNova()) #scope.toNova()")
 }

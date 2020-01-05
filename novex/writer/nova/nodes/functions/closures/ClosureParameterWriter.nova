@@ -7,6 +7,6 @@ import "novex/astro/tree/nodes/Type"
 import "novex/astro/tree/nodes/functions/Parameter"
 import "novex/astro/util/Location"
 
-class ClosureParameterWriter extends ParameterWriter {
+class ClosureParameterWriter {
     
 }

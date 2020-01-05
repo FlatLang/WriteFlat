@@ -26,7 +26,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ClassDeclarationWriter extends InstanceDeclarationWriter implements AbstractableWriter, GenericCompatibleWriter {
+class ClassDeclarationWriter {
     public writeHeader(OutputStream writer = new StringBuilder()) =>
         writer.write("#identifier #{name}#writeGenericParameters() #writeExtension() #writeImplementedInterfaces()".replace(/\s+/, " ").trim())
     

@@ -13,6 +13,6 @@ import "novex/astro/tree/nodes/functions/FunctionCall"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class LambdaParameterWriter extends ParameterWriter {
+class LambdaParameterWriter {
     
 }

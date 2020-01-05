@@ -18,7 +18,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class InstantiationWriter extends FunctionCallWriter {
+class InstantiationWriter {
     public writeObjectNotation(OutputStream writer = new StringBuilder()) =>
         objectNotation ?
             writer.write(" " + objectNotation.toNova()) :

@@ -12,7 +12,7 @@ import "novex/astro/util/CompilerStringFunctions"
 /// author: Braden Steffaniak
 /// since: 
 /// version: 
-class ReturnWriter extends NodeWriter {
+class ReturnWriter {
     public writeValue(OutputStream writer = new StringBuilder()) =>
         value ?
             value.toNova(writer) :

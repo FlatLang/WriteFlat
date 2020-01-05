@@ -27,13 +27,17 @@ import "nova/datastruct/Bounds"
 /// since:   v0.1 Jan 5, 2014 at 9:00:11 PM
 /// version: v0.2.41 Dec 17, 2014 at 7:48:17 PM
 [AutoFinal]
-class NodeWriter implements AnnotatableWriter {
+class NodeWriter {
+    visible Node node
+    
+    public construct(visible Node node) {}
+    
     public writeAnnotationSeparator(OutputStream writer = new StringBuilder()) => writer.write(" ")
     
     public writeAnnotations(OutputStream writer = new StringBuilder()) =>
-        annotations && annotations.count > 0 ?
-            writer.write(annotations.filter({ !_.isModifier }).map({ _.toNova() + writeAnnotationSeparator() }).join() +
-                annotations.filter({ _.isModifier }).map({ _.toNova() + " " }).join()) :
+        node.annotations && node.annotations.count > 0 ?
+            writer.write(node.annotations.filter({ !_.isModifier }).map({ _.toNova() + writeAnnotationSeparator() }).join() +
+                node.annotations.filter({ _.isModifier }).map({ _.toNova() + " " }).join()) :
             writer
     
     public toNova(OutputStream writer = new StringBuilder()) => writer {

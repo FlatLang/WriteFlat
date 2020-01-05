@@ -13,7 +13,7 @@ import "novex/astro/tree/nodes/operations/Assignable"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class VariableWriter extends IdentifierWriter implements AccessibleWriter, AssignableWriter {
+class VariableWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer {
         writer.write(declaration.name)
         writeArrayAccess(writer)

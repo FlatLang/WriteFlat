@@ -11,6 +11,6 @@ import "novex/astro/util/Location"
 
 import "novex/astro/util/CompilerStringFunctions"
 
-class ArrayBracketOverloadWriter extends NodeWriter {
+class ArrayBracketOverloadWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write("this[#{index}]")
 }

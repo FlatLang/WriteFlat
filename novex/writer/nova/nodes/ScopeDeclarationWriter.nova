@@ -4,6 +4,6 @@ import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
 import "novex/astro/util/Location"
 
-trait ScopeDeclarationWriter extends NodeWriter {
+trait ScopeDeclarationWriter {
     
 }
