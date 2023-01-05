@@ -1,16 +1,16 @@
-package "novex/writer/nova/nodes/functions"
+package "flat/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Type"
-import "novex/astro/tree/nodes/Scope"
-import "novex/astro/tree/nodes/Return"
-import "novex/astro/tree/nodes/Value"
-import "novex/astro/util/Location"
-import "novex/astro/SyntaxMessage"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Type"
+import "flat/astro/tree/nodes/Scope"
+import "flat/astro/tree/nodes/Return"
+import "flat/astro/tree/nodes/Value"
+import "flat/astro/util/Location"
+import "flat/astro/SyntaxMessage"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
 class ConstructorWriter {
     public writeReturnType(OutputStream writer = new StringBuilder()) => writer

@@ -1,17 +1,17 @@
-package "novex/writer/nova/nodes"
+package "flat/writer/nova/nodes"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
 import "nova/datastruct/Pair"
 import "nova/datastruct/list/List"
 
-import "novex/astro/SyntaxMessage"
-import "novex/astro/InvalidParseException"
-import "novex/astro/util/SyntaxUtils"
-import "novex/astro/tree/nodes/functions/FunctionCall"
-import "novex/astro/tree/nodes/Accessible"
+import "flat/astro/SyntaxMessage"
+import "flat/astro/InvalidParseException"
+import "flat/astro/util/SyntaxUtils"
+import "flat/astro/tree/nodes/functions/FunctionCall"
+import "flat/astro/tree/nodes/Accessible"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
 trait AccessibleWriter {
     public static writeAccessedNodes(Accessible node, OutputStream writer = new StringBuilder()) -> String =>

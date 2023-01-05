@@ -1,20 +1,20 @@
-package "novex/writer/nova/nodes/functions"
+package "flat/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/SyntaxErrorException"
-import "novex/astro/InvalidParseException"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Value"
-import "novex/astro/util/Location"
+import "flat/astro/SyntaxErrorException"
+import "flat/astro/InvalidParseException"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Value"
+import "flat/astro/util/Location"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
-/// @Value extension that represents 
+/// @Value extension that represents
 ///
 /// author: Braden Steffaniak
-/// since: 
-/// version: 
+/// since:
+/// version:
 [AutoFinal]
 class EmptyArrayBracketWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer

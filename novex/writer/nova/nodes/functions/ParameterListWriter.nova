@@ -1,10 +1,10 @@
-package "novex/writer/nova/nodes/functions"
+package "flat/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/NodeList"
-import "novex/astro/util/Location"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/NodeList"
+import "flat/astro/util/Location"
 
 class ParameterListWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write("(#{parameters.join(", ")})")

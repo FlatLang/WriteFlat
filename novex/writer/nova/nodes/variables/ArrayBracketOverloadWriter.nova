@@ -1,15 +1,15 @@
-package "novex/writer/nova/nodes/variables"
+package "flat/writer/nova/nodes/variables"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Identifier"
-import "novex/astro/tree/nodes/functions/BodyFunction"
-import "novex/astro/tree/nodes/variables/LocalDeclaration"
-import "novex/astro/SyntaxErrorException"
-import "novex/astro/util/Location"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Identifier"
+import "flat/astro/tree/nodes/functions/BodyFunction"
+import "flat/astro/tree/nodes/variables/LocalDeclaration"
+import "flat/astro/SyntaxErrorException"
+import "flat/astro/util/Location"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
 class ArrayBracketOverloadWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write("this[#{index}]")

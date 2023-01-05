@@ -1,17 +1,17 @@
-package "novex/writer/nova/nodes/variables"
+package "flat/writer/nova/nodes/variables"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/InvalidParseException"
-import "novex/astro/util/Location"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Type"
-import "novex/astro/tree/nodes/Identifier"
-import "novex/astro/tree/nodes/Accessible"
-import "novex/astro/tree/nodes/Value"
-import "novex/astro/tree/nodes/operations/Assignable"
+import "flat/astro/InvalidParseException"
+import "flat/astro/util/Location"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Type"
+import "flat/astro/tree/nodes/Identifier"
+import "flat/astro/tree/nodes/Accessible"
+import "flat/astro/tree/nodes/Value"
+import "flat/astro/tree/nodes/operations/Assignable"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
 class VariableWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer {

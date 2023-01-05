@@ -1,12 +1,12 @@
-package "novex/writer/nova/nodes/functions/closures"
+package "flat/writer/nova/nodes/functions/closures"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Type"
-import "novex/astro/tree/nodes/functions/Parameter"
-import "novex/astro/util/Location"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Type"
+import "flat/astro/tree/nodes/functions/Parameter"
+import "flat/astro/util/Location"
 
 class ClosureParameterWriter {
-    
+
 }

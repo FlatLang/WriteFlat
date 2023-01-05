@@ -1,19 +1,19 @@
-package "novex/writer/nova/nodes/operations"
+package "flat/writer/nova/nodes/operations"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/SyntaxMessage"
-import "novex/astro/tree/nodes/Value"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Type"
-import "novex/astro/tree/nodes/variables/LocalDeclaration"
-import "novex/astro/tree/nodes/variables/Variable"
-import "novex/astro/tree/nodes/variables/ImplicitDeclaration"
-import "novex/astro/tree/nodes/variables/VariableDeclaration"
-import "novex/astro/util/Location"
+import "flat/astro/SyntaxMessage"
+import "flat/astro/tree/nodes/Value"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Type"
+import "flat/astro/tree/nodes/variables/LocalDeclaration"
+import "flat/astro/tree/nodes/variables/Variable"
+import "flat/astro/tree/nodes/variables/ImplicitDeclaration"
+import "flat/astro/tree/nodes/variables/VariableDeclaration"
+import "flat/astro/util/Location"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
 class AssignmentWriter {
-    
+
 }

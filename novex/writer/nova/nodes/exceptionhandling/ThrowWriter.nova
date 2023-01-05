@@ -1,20 +1,20 @@
-package "novex/writer/nova/nodes/exceptionhandling"
+package "flat/writer/nova/nodes/exceptionhandling"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/SyntaxErrorException"
-import "novex/astro/InvalidParseException"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Value"
-import "novex/astro/util/Location"
+import "flat/astro/SyntaxErrorException"
+import "flat/astro/InvalidParseException"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Value"
+import "flat/astro/util/Location"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
-/// @Node extension that represents 
+/// @Node extension that represents
 ///
 /// author: Braden Steffaniak
-/// since: 
-/// version: 
+/// since:
+/// version:
 class ThrowWriter {
     public writeNova(OutputStream writer = new StringBuilder()) =>
         writer.write("#{soft ? "softly" : ""} throw #exception.toNova()".trim())

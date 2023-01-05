@@ -1,18 +1,18 @@
-package "novex/writer/nova/nodes/functions/closures"
+package "flat/writer/nova/nodes/functions/closures"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/InvalidParseException"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Type"
-import "novex/astro/tree/nodes/functions/Parameter"
-import "novex/astro/tree/nodes/functions/ParameterList"
-import "novex/astro/util/Location"
+import "flat/astro/InvalidParseException"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Type"
+import "flat/astro/tree/nodes/functions/Parameter"
+import "flat/astro/tree/nodes/functions/ParameterList"
+import "flat/astro/util/Location"
 
-import "novex/astro/tree/nodes/functions/FunctionCall"
+import "flat/astro/tree/nodes/functions/FunctionCall"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
 class LambdaParameterWriter {
-    
+
 }

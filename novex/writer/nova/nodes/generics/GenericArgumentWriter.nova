@@ -1,11 +1,11 @@
-package "novex/writer/nova/nodes/generics"
+package "flat/writer/nova/nodes/generics"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/util/Location"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Value"
-import "novex/astro/tree/nodes/Type"
+import "flat/astro/util/Location"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Value"
+import "flat/astro/tree/nodes/Type"
 
 class GenericArgumentWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write(type.name)

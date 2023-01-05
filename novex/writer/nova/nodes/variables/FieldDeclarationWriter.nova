@@ -1,19 +1,19 @@
-package "novex/writer/nova/nodes/variables"
+package "flat/writer/nova/nodes/variables"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Value"
-import "novex/astro/tree/nodes/functions/BodyFunction"
-import "novex/astro/tree/nodes/functions/PropertyFunction"
-import "novex/astro/tree/nodes/functions/AccessorFunction"
-import "novex/astro/tree/nodes/functions/MutatorFunction"
-import "novex/astro/tree/nodes/operations/Assignable"
-import "novex/astro/SyntaxErrorException"
-import "novex/astro/SyntaxMessage"
-import "novex/astro/util/Location"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Value"
+import "flat/astro/tree/nodes/functions/BodyFunction"
+import "flat/astro/tree/nodes/functions/PropertyFunction"
+import "flat/astro/tree/nodes/functions/AccessorFunction"
+import "flat/astro/tree/nodes/functions/MutatorFunction"
+import "flat/astro/tree/nodes/operations/Assignable"
+import "flat/astro/SyntaxErrorException"
+import "flat/astro/SyntaxMessage"
+import "flat/astro/util/Location"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
 class FieldDeclarationWriter {
     public writeInitializationValue(OutputStream writer = new StringBuilder()) => initializationValue ? writer.write(" = #initializationValue.toNova()") : writer
@@ -21,22 +21,22 @@ class FieldDeclarationWriter {
         accessorValue ?
             writer.write((isTwoWayAccessor ? " <=> " : " => ") + accessorValue.toNova()) :
             writer
-    
+
     public writePropertyFunctions(OutputStream writer = new StringBuilder()) => writer {
         if (accessor || mutator) {
             writer.write(" {")
-            
+
             if (accessor) {
                 writer.write("\n" + accessor.writeNova() + "\n")
             }
             if (mutator) {
                 writer.write("\n" + mutator.writeNova() + "\n")
             }
-            
+
             writer.write("}")
         }
     }
-    
+
     public writeNova(OutputStream writer = new StringBuilder()) => writer {
         super.writeNova(writer)
         writeInitializationValue(writer)

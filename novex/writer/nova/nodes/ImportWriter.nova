@@ -1,12 +1,12 @@
-package "novex/writer/nova/nodes"
+package "flat/writer/nova/nodes"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/SyntaxMessage"
-import "novex/astro/SyntaxErrorException"
-import "novex/astro/util/Location"
+import "flat/astro/SyntaxMessage"
+import "flat/astro/SyntaxErrorException"
+import "flat/astro/util/Location"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
 class ImportWriter {
     public writeNova(OutputStream writer = new StringBuilder()) => writer.write("import \"#importLocation\"")

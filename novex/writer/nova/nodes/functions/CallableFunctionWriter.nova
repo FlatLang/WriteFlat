@@ -1,20 +1,20 @@
-package "novex/writer/nova/nodes/functions"
+package "flat/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Identifier"
-import "novex/astro/InvalidParseException"
-import "novex/astro/tree/nodes/annotations/Annotation"
-import "novex/astro/tree/AnnotationSearchResult"
-import "novex/astro/tree/nodes/generics/GenericParameter"
-import "novex/astro/tree/nodes/generics/GenericCompatible"
-import "novex/astro/tree/nodes/Value"
-import "novex/astro/tree/SyntaxTree"
-import "novex/astro/SyntaxMessage"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Identifier"
+import "flat/astro/InvalidParseException"
+import "flat/astro/tree/nodes/annotations/Annotation"
+import "flat/astro/tree/AnnotationSearchResult"
+import "flat/astro/tree/nodes/generics/GenericParameter"
+import "flat/astro/tree/nodes/generics/GenericCompatible"
+import "flat/astro/tree/nodes/Value"
+import "flat/astro/tree/SyntaxTree"
+import "flat/astro/SyntaxMessage"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
 trait CallableFunctionWriter {
-    
+
 }

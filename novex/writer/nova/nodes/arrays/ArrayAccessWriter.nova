@@ -1,11 +1,11 @@
-package "novex/writer/nova/nodes/arrays"
+package "flat/writer/nova/nodes/arrays"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Value"
-import "novex/astro/SyntaxErrorException"
-import "novex/astro/util/Location"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Value"
+import "flat/astro/SyntaxErrorException"
+import "flat/astro/util/Location"
 
 /// @Node extension that keeps track of any time an array is being accessed.
 /// For example, the statement: "[34]" is an array access. The previous code

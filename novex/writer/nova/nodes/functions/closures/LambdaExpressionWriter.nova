@@ -1,31 +1,31 @@
-package "novex/writer/nova/nodes/functions/closures"
+package "flat/writer/nova/nodes/functions/closures"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
 import "nova/datastruct/list/Stack"
 
-import "novex/astro/SyntaxErrorException"
-import "novex/astro/InvalidParseException"
-import "novex/astro/util/Location"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Scope"
-import "novex/astro/tree/nodes/ScopeDeclaration"
-import "novex/astro/tree/nodes/Value"
-import "novex/astro/tree/nodes/ClassDeclaration"
-import "novex/astro/tree/nodes/variables/VariableDeclaration"
-import "novex/astro/tree/nodes/functions/Parameter"
-import "novex/astro/tree/nodes/functions/ParameterList"
-import "novex/astro/tree/nodes/functions/FunctionCall"
-import "novex/astro/tree/nodes/functions/FunctionDeclaration"
-import "novex/astro/tree/nodes/functions/CallableFunction"
+import "flat/astro/SyntaxErrorException"
+import "flat/astro/InvalidParseException"
+import "flat/astro/util/Location"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Scope"
+import "flat/astro/tree/nodes/ScopeDeclaration"
+import "flat/astro/tree/nodes/Value"
+import "flat/astro/tree/nodes/ClassDeclaration"
+import "flat/astro/tree/nodes/variables/VariableDeclaration"
+import "flat/astro/tree/nodes/functions/Parameter"
+import "flat/astro/tree/nodes/functions/ParameterList"
+import "flat/astro/tree/nodes/functions/FunctionCall"
+import "flat/astro/tree/nodes/functions/FunctionDeclaration"
+import "flat/astro/tree/nodes/functions/CallableFunction"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
-/// @Node extension that represents 
+/// @Node extension that represents
 ///
 /// author: Braden Steffaniak
-/// since: 
-/// version: 
+/// since:
+/// version:
 class LambdaExpressionWriter {
     public writeParameters(OutputStream writer = new StringBuilder()) => writer {
         if (parameters.count == 1) {
@@ -34,12 +34,12 @@ class LambdaExpressionWriter {
             return writer.write("(" + parameters.map({ _.toNova() }).join(", ") + ")")
         }
     }
-    
+
     writeParameterClause(OutputStream writer = new StringBuilder()) =>
         parameters.count > 0 ?
             writeParameters(writer).write(" => ") :
             writer
-    
+
     public writeNova(OutputStream writer = new StringBuilder()) => writer {
         writeParameterClause(writer)
         scope.writeNova(writer, true)

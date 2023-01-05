@@ -1,14 +1,14 @@
-package "novex/writer/nova/nodes/functions"
+package "flat/writer/nova/nodes/functions"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/InvalidParseException"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Scope"
-import "novex/astro/util/Location"
-import "novex/astro/SyntaxMessage"
+import "flat/astro/InvalidParseException"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Scope"
+import "flat/astro/util/Location"
+import "flat/astro/SyntaxMessage"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
 class AccessorFunctionWriter {
     public writeHeader(OutputStream writer = new StringBuilder()) => writer.write(disabled ? "no " : "").write("get")

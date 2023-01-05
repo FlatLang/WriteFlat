@@ -1,24 +1,24 @@
-package "novex/writer/nova/nodes/functions/closures"
+package "flat/writer/nova/nodes/functions/closures"
 
 import "nova/io/OutputStream"
 import "nova/io/StringBuilder"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/Type"
-import "novex/astro/tree/nodes/Value"
-import "novex/astro/tree/nodes/functions/Parameter"
-import "novex/astro/tree/nodes/functions/ParameterList"
-import "novex/astro/tree/nodes/functions/CallableFunction"
-import "novex/astro/tree/nodes/generics/GenericParameter"
-import "novex/astro/util/Location"
+import "flat/astro/tree/nodes/Node"
+import "flat/astro/tree/nodes/Type"
+import "flat/astro/tree/nodes/Value"
+import "flat/astro/tree/nodes/functions/Parameter"
+import "flat/astro/tree/nodes/functions/ParameterList"
+import "flat/astro/tree/nodes/functions/CallableFunction"
+import "flat/astro/tree/nodes/generics/GenericParameter"
+import "flat/astro/util/Location"
 
-import "novex/astro/util/CompilerStringFunctions"
+import "flat/astro/util/CompilerStringFunctions"
 
 class ClosureDeclarationWriter {
     public writeType(OutputStream writer = new StringBuilder()) =>
         type ?
             writer.write("-> #type.toNova()") :
             writer
-    
+
     public writeNova(OutputStream writer = new StringBuilder()) => writer {
         writer.write(("#{name}#parameterList.toNova() " + writeType()).trim())
         writeDefaultValue(writer)
